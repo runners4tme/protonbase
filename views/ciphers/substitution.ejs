@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <% include ../components/head %>
+
+  <body>
+
+    <% include ../components/header %>
+
+    <div class="substitution">
+
+      <h4 class="name">Substitution Cipher</h4>
+
+      <h5 class="description">Description</h5>
+
+      <div class="row">
+        <p class="descBody col s8 offset-s2">
+          A simple substitution cipher is a cipher where we choose a random number for each character and only use it once for that
+          specific character. This means that there is billions of options that we cannot be figured out.
+          To encrypt it we use the bottom row and to decrypt it we use the top row.
+          The simple substitution can not be hack by a brute-force attack.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          The simple substitution is more complex that the other ciphers. We need to employ a clever way to do this.
+          We have to check a word pattern for each word, and each word and the plaintext will always the same word pattern.
+          SO we compute all the possible candidates and then create a mapping for all the possible encryption letters.
+          The longer the message the more easier is is to hack it.
+        </p>
+      </div>
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s8 offset-s2">
+              <textarea id="textarea8" class="materialize-textarea"></textarea>
+              <label for="textarea8">Textarea</label>
+           </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <button id="encryptSub" class="btn">Encrypt</button>
+          <button id="decryptSub" class="btn">Decrypt</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s8 offset-s2">
+          <div class="box_container">
+            <div class="text_holder row">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <% include ../components/scripts %>
+
+  </body>
+</html>

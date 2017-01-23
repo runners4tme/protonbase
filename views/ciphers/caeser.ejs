@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  <% include ../components/head %>
+
+  <body>
+
+    <% include ../components/header %>
+
+    <div class="ceaser">
+
+      <h4 class="name">Caeser Cipher</h4>
+
+      <h5 class="description">Description</h5>
+
+      <div class="row">
+        <p class="descBody col s8 offset-s2">
+          A ceaser cipher is a monoalphabetic substitution cipher that was named after Julius Ceaser.
+          It works by adding a key repeatedly to the of the letters in the plaintext where A = 0 and Z = 25 and the addition is done module 26.
+          We loop through each letter in the plaintext and check if that letter is part of the alphabet order. If it is not part of it,
+          we just add it to the ciphertext text as it is, if it is, we add the key to the position of that letter and
+          if the result is ever above the range of 0 and 25, we simply subtract a multiple of 26 to bring is to our desired range.
+          Mathematically we denote the ciphertext as C = P + K mod 26.
+          To decrypt is also simple, all we have to do is to subtract the key from the position of the letter
+          and if the result is below zero we simple add a multiple of 26 to make sure that it is within the desired range.
+          </p>
+          <p class="descBody col s8 offset-s2">
+           The problem with this cipher is that is is easy to break because you only have to loop throughout 26 keys
+           and the key that will return the plaintext that is readable is the encryption key that was used for the ciphertext.
+           This process is called the brute-force attack.It would have taken ages to try out each key during those days
+           but thanks to computers, We can hack it in a matter of milliseconds.
+         </p>
+      </div>
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s8 offset-s2">
+              <textarea id="textarea2" class="materialize-textarea"></textarea>
+              <label for="textarea2">Textarea</label>
+           </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <button id="encryptCaeser" class="btn">Encrypt</button>
+          <button id="decryptCaeser" class="btn">Decrypt</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s8 offset-s2">
+          <div class="box_container">
+            <div class="text_holder row">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <% include ../components/scripts %>
+
+  </body>
+</html>

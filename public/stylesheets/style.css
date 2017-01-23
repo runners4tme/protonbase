@@ -1,0 +1,59 @@
+/*Global*/
+
+body {
+  font-family: serif;
+  background-color: #FEFCFF;
+}
+
+/*Navigation Bar*/
+
+.nav-wrapper {
+  background-color: #000000;
+}
+
+.nav-wrapper ul li {
+  padding: 0 15px 0 15px;
+  font-weight: bolder;
+}
+
+.nav-wrapper ul li a:hover {
+  background-color: #2C3539;
+  color: #FFFFFF;
+}
+
+.nav-wrapper ul li a {
+  color: #FFFFFF;
+}
+
+.nav-wrapper #dropdownMenu {
+  top: 45px !important;
+  width: 150px !important;
+  background-color: #000000;
+}
+
+.nav-wrapper #dropdownMenu li:hover {
+  background-color: #2C3539;
+}
+
+.nav-wrapper #title {
+  color: #FFFFFF;
+  margin: 0 0 0 15px;
+}
+
+.nav-wrapper #hamburger {
+  color: #FFFFFF;
+  margin: 0 0 0 15px;
+}
+
+.nav-wrapper .side-nav {
+  background-color: #000000;
+}
+
+/*Info*/
+.info {
+  text-align: center;
+}
+
+.info h3 {
+  padding: 200px 0 250px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+  <% include ../components/head %>
+
+  <body>
+
+    <% include ../components/header %>
+
+    <div class="affine">
+
+      <h4 class="name">Affine Cipher</h4>
+
+      <h5 class="description">Description</h5>
+
+      <div class="row">
+        <p class="descBody col s8 offset-s2">
+         The affine cipher is a multiplicative cipher. We need to understand some basic mathematics behind it to get started
+         Modular arithmatic is quite simple. We are looking for the remainder of after deviding two numbers.
+         For example 7 mod 4 is 3. Factors are numbers that can be multiplied to produce a number.
+         For example 16 has factors of 1, 2, 4, 8, 16. The greatest common divisor between two numbers is the number
+         that can divide the two numbers in question with no remainder. We use the Euclid algorithm to find the
+         greatest common divisor of two numbers. Relative prime is when two numbers if the greatest common divisor is one.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          The cipher works in works in this way. We go through the characters of the plaintext.
+          But instead of adding it number to the key. We multiply it by the number and mod it with 26.
+          The problem is that A will always map back to A since A  = 0, and 0 multiplied by any number is 0.
+          So we simply add a second key then mod 26. You can't just use any number though.
+          The first key and the size of the symbol must be relatively primed that is the gcd must be 1.
+          We can't use 1 because it will be weak and also 0 because can't multiply anything with 0.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          Decrypting the affine cipher is a bit complicated. We need to do some division but not with any number.
+          The modular inverse of two number i is such (a * i) % m == 1, The inverse is the decryption is the key to be
+          multiplied with the position of the character and then modded by 26.
+          There is an algorithm to do it quickly which we won't be discussed now.
+          The probblem with it is that is wraps around the number of the keys. We only have 96 options.
+          After that, the keys will repeat the encryption.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          Since we know that this key is just limted to a few thousand keys. We can hack it with brute-force attack!
+          We are going to try each key from 1 using the brute-force attack and try to unlock it using the modular inverse as the key.
+          It only takes a few minutes to go through all the keys without breaking the computer at all.
+          Once we get a plaintext that is english we stop the program and if we have a false positive we just continue with it,
+          We will log all the text on the screen to nake that we don't miss anything at all.
+        </p>
+      </div>
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s8 offset-s2">
+              <textarea id="textarea6" class="materialize-textarea"></textarea>
+              <label for="textarea2">Textarea</label>
+           </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <button id="encryptAffine" class="btn">Encrypt</button>
+          <button id="decryptAffine" class="btn">Decrypt</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s8 offset-s2">
+          <div class="box_container">
+            <div class="text_holder row">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <% include ../components/scripts %>
+
+  </body>
+</html>

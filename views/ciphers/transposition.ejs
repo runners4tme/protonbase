@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <% include ../components/head %>
+
+  <body>
+
+    <% include ../components/header %>
+
+    <div class="transposition">
+
+      <h4 class="name">Transposition Cipher</h4>
+
+      <h5 class="description">Description</h5>
+
+      <div class="row">
+        <p class="descBody col s8 offset-s2">
+          A transposition cipher is a all about confusion. It is an encryption where the letters are rearranged.
+          It is about using a key to jumble the letters of the plaintext so that it becomes unreadable.
+          We are going to look at the a simple columner transposition where the letters of the plaintext are
+          divided into columns using the encryption key. This cipher is easy to grasp, we devide the plaintext into rows,
+          the rows are the length of the key. Then we loop through the columns which are horizontal until we get to the end
+          of all the characters of the plaintext. this cipher is not really appropreate for long messages.
+          Because it is quadratic and takes a lot of memory and time.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          To decrypt the transposition cipher we need to first figure out the number of the rows that the rows formed,
+          this is the key used, we also need to figure out the number of columns which is the length of the message
+          over the key. This will allow us to draw a grid of boxes where we can just fill in the letters and we
+          also have to calculate the empty spaces because not all the columns will have the same length.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          To hack the transposition cipher is a bit complex, we are still going to use to brute-force attack.
+          We are going to try out every single key that we can and the one that will result is english that we can read is the
+          encryption key. We also need to loop through each word of the plaintext so detect is if is english or not.
+          We have created a separate program for this. It simply loops each word and see if it can find it in an english dictionary
+          and if it can find it, the more words it can find the likely hood of the encryption key being correct.
+        </p>
+      </div>
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s8 offset-s2">
+              <textarea id="textarea4" class="materialize-textarea"></textarea>
+              <label for="textarea2">Textarea</label>
+           </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <button id="encryptTrans" class="btn">Encrypt</button>
+          <button id="decryptTrans" class="btn">Decrypt</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s8 offset-s2">
+          <div class="box_container">
+            <div class="text_holder row">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <% include ../components/scripts %>
+
+  </body>
+</html>
