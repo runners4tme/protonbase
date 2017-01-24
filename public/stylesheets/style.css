@@ -1,11 +1,11 @@
-/*Global*/
+/**global**/
 
 body {
   font-family: serif;
   background-color: #FEFCFF;
 }
 
-/*Navigation Bar*/
+/**navigation bar**/
 
 .nav-wrapper {
   background-color: #000000;
@@ -49,7 +49,8 @@ body {
   background-color: #000000;
 }
 
-/*info*/
+/**info**/
+
 .info {
   padding: 200px 0 310px;
   text-align: center;
@@ -58,6 +59,7 @@ body {
 }
 
 /**ciphers**/
+
 .ciphers {
   text-align: center;
 }
@@ -71,7 +73,11 @@ body {
   padding: 10px;
 }
 
-/*footer*/
+/**footer**/
+
 .footer {
+  background-color: #000000;
+  color: #FFFFFF;
   text-align: center;
+  margin: 0;
 }
