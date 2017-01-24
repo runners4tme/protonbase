@@ -6,42 +6,31 @@ $(document).ready(function(){
 
   $('#textarea1').trigger('autoresize');
 
-  function createLink(tag, link) {
-    el = document.createElement(tag);
-    el.setAttribute("href",link);
-    el.textContent = "here";
-    return el
-  }
-
   function createElement(tag,className,text) {
     el = document.createElement(tag);
     el.setAttribute("class",className);
     el.textContent = text;
     return el
-   }
+  };
 
-   function end_conversation(){
-     payload.input = '';
-     payload.intents = [];
-     payload.output.text = "";
-   }
-
-   $('#encryptReverse').click(function(){
-     //send data to the server
+   $('#encryptCeaser').click(function(){
+     /**send data to the server**/
      value = $("#textarea1").val()
      socket.emit('reverse', value);
      $("#textarea1").val('');
      return false;
    });
-   $('#decryptReverse').click(function(){
-     //send data to the server
+
+   $('#decryptCeaser').click(function(){
+     /**send data to the server**/
      value = $("#textarea1").val()
      socket.emit('reverse', value);
      $("#textarea1").val('');
      return false;
    });
-   //process the data from the server
-   socket.on('reverse', function(msg){
+
+   /**process the data from the server**/
+   socket.on('ceaser', function(msg){
      div1 = createElement("div","text_container")
      row = createElement("div","row textBox")
      div2 = createElement("div","col s6 plainBox")

@@ -1,5 +1,5 @@
-var fmi = require("./basicMath");
-var gcd = require("./commonMath");
+var math = require("./math");
+
 
 function affineCipher() {
 
@@ -74,7 +74,7 @@ function decryptMessage(key, message) {
 
   keyA = getKeyParts(key);
   keyB = getKeyParts(key);
-  modInverseKeyB = fmi(keyA, Symbols.length);
+  modInverseKeyB = math.fmi(keyA, Symbols.length);
   checkKeys(keyA, keyB, 'decrypt');
   ciphertext = "";
 

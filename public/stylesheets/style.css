@@ -49,11 +49,29 @@ body {
   background-color: #000000;
 }
 
-/*Info*/
+/*info*/
 .info {
+  padding: 200px 0 310px;
+  text-align: center;
+  background-size: cover;
+  background-image: url("../images/image.svg");
+}
+
+/**ciphers**/
+.ciphers {
   text-align: center;
 }
 
-.info h3 {
-  padding: 200px 0 250px;
+.ciphers .cipher {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.ciphers .cipher h2 {
+  padding: 10px;
+}
+
+/*footer*/
+.footer {
+  text-align: center;
 }

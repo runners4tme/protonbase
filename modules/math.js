@@ -1,3 +1,11 @@
+function gcd(a,b) {
+  while(a != b) {
+    a = b % a
+    b = a
+    return b
+  }
+};
+
 //divide the two numbers and get the remainder
 
 function fmi(a, m) {
@@ -43,4 +51,5 @@ while (v3 != 0) {
 return u1 % m
 }
 
-module.exports = fmi;
+exports.gcd = gcd;
+exports.fmi = fmi;
