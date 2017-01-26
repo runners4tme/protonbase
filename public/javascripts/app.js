@@ -6,6 +6,11 @@ $(document).ready(function(){
 
   $('#textarea1').trigger('autoresize');
 
+  $(".element").typed({
+    strings: ["First sentence.", "Second sentence."],
+    typeSpeed: 0
+  });
+
   function createElement(tag,className,text) {
     el = document.createElement(tag);
     el.setAttribute("class",className);
