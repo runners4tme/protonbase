@@ -11,7 +11,7 @@
 
       <h4 class="name">Transposition Cipher</h4>
 
-      <h5 class="description">Description</h5>
+      <h5 class="description">Encryption</h5>
 
       <div class="row">
         <p class="descBody col s8 offset-s2">
@@ -23,6 +23,11 @@
           of all the characters of the plaintext. this cipher is not really appropreate for long messages.
           Because it is quadratic and takes a lot of memory and time.
         </p>
+      </div>
+
+      <h5 class="description">Decryption</h5>
+
+      <div class="row">
         <p class="descBody col s8 offset-s2">
           To decrypt the transposition cipher we need to first figure out the number of the rows that the rows formed,
           this is the key used, we also need to figure out the number of columns which is the length of the message
@@ -39,29 +44,33 @@
       </div>
 
       <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s8 offset-s2">
-              <textarea id="textarea4" class="materialize-textarea"></textarea>
-              <label for="textarea4">Textarea</label>
-           </div>
-          </div>
-        </form>
-      </div>
+        <div class="col l8 offset-l2">
+          <div class="console">
 
-      <div class="row">
-        <div class="col s12">
-          <button id="encryptTrans" class="btn">Encrypt</button>
-          <button id="decryptTrans" class="btn">Decrypt</button>
+            <div class="row">
+              <div class="input-field col l12">
+                <i class="fa fa-chevron-right"></i>
+                <textarea id="textarea4" class="materialize-textarea"></textarea>
+             </div>
+            </div>
+
+            <div class="row">
+              <div class="col l12">
+                <div class="plain_container">
+                </div>
+                <div class="cipher_container">
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col s8 offset-s2">
-          <div class="box_container">
-            <div class="text_holder row">
-            </div>
-          </div>
+        <div class="col s12">
+          <button id="encryptTrans" class="button">Encrypt</button>
+          <button id="decryptTrans" class="button">Decrypt</button>
         </div>
       </div>
 

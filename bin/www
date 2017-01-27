@@ -25,8 +25,9 @@ var io = require("socket.io")(server);
 
 io.on("connection",function(socket){
   socket.on("caeser",function(msg){
-    var response = caeserCipher(msg)
-    socket.emit("message",response)
+    var payload = { key: 10, mode: "encrypt", msg: msg }
+    var response = caeserCipher(payload)
+    socket.emit("caeser",response)
   })
 })
 

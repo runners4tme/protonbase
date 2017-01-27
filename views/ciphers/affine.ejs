@@ -11,7 +11,7 @@
 
       <h4 class="name">Affine Cipher</h4>
 
-      <h5 class="description">Description</h5>
+      <h5 class="description">Encryption</h5>
 
       <div class="row">
         <p class="descBody col s8 offset-s2">
@@ -30,6 +30,11 @@
           The first key and the size of the symbol must be relatively primed that is the gcd must be 1.
           We can't use 1 because it will be weak and also 0 because can't multiply anything with 0.
         </p>
+      </div>
+
+      <h5 class="description">Decryption</h5>
+
+     <div class="row">
         <p class="descBody col s8 offset-s2">
           Decrypting the affine cipher is a bit complicated. We need to do some division but not with any number.
           The modular inverse of two number i is such (a * i) % m == 1, The inverse is the decryption is the key to be
@@ -48,29 +53,33 @@
       </div>
 
       <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s8 offset-s2">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">Textarea</label>
-           </div>
-          </div>
-        </form>
-      </div>
+        <div class="col l8 offset-l2">
+          <div class="console">
 
-      <div class="row">
-        <div class="col s12">
-          <button id="encryptAffine" class="btn">Encrypt</button>
-          <button id="decryptAffine" class="btn">Decrypt</button>
+            <div class="row">
+              <div class="input-field col l12">
+                <i class="fa fa-chevron-right"></i>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+             </div>
+            </div>
+
+            <div class="row">
+              <div class="col l12">
+                <div class="plain_container">
+                </div>
+                <div class="cipher_container">
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col s8 offset-s2">
-          <div class="box_container">
-            <div class="text_holder row">
-            </div>
-          </div>
+        <div class="col s12">
+          <button id="encryptAffine" class="button">Encrypt</button>
+          <button id="decryptAffine" class="button">Decrypt</button>
         </div>
       </div>
 

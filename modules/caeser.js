@@ -35,8 +35,6 @@ for (i = 0; i < plainMessage.length; i++) {
     }
   }
 
-  console.log(cipherMessage)
-
   return { plainMessage: plainMessage, cipherMessage: cipherMessage }
 
 }

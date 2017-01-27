@@ -11,7 +11,7 @@
 
       <h4 class="name">Substitution Cipher</h4>
 
-      <h5 class="description">Description</h5>
+      <h5 class="description">Encryption</h5>
 
       <div class="row">
         <p class="descBody col s8 offset-s2">
@@ -20,6 +20,11 @@
           To encrypt it we use the bottom row and to decrypt it we use the top row.
           The simple substitution can not be hack by a brute-force attack.
         </p>
+      </div>
+
+      <h5 class="description">Decryption</h5>
+
+      <div class="row">
         <p class="descBody col s8 offset-s2">
           The simple substitution is more complex that the other ciphers. We need to employ a clever way to do this.
           We have to check a word pattern for each word, and each word and the plaintext will always the same word pattern.
@@ -29,29 +34,33 @@
       </div>
 
       <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s8 offset-s2">
-              <textarea id="textarea3" class="materialize-textarea"></textarea>
-              <label for="textarea3">Textarea</label>
-           </div>
-          </div>
-        </form>
-      </div>
+        <div class="col l8 offset-l2">
+          <div class="console">
 
-      <div class="row">
-        <div class="col s12">
-          <button id="encryptSub" class="btn">Encrypt</button>
-          <button id="decryptSub" class="btn">Decrypt</button>
+            <div class="row">
+              <div class="input-field col l12">
+                <i class="fa fa-chevron-right"></i>
+                <textarea id="textarea3" class="materialize-textarea"></textarea>
+             </div>
+            </div>
+
+            <div class="row">
+              <div class="col l12">
+                <div class="plain_container">
+                </div>
+                <div class="cipher_container">
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col s8 offset-s2">
-          <div class="box_container">
-            <div class="text_holder row">
-            </div>
-          </div>
+        <div class="col s12">
+          <button id="encryptSub" class="button">Encrypt</button>
+          <button id="decryptSub" class="button">Decrypt</button>
         </div>
       </div>
 

@@ -13,12 +13,40 @@
   text-align: center;
 }
 
-.box_container {
-  margin: 15px 0 15px 0;
+.plain_container {
   color: #00FF00;
+  text-align: left;
 }
 
-.text_container {
+.cipher_container {
+  color: #00FF00;
+  text-align: left;
+}
+
+/**button**/
+.button {
+  padding: 6px 15px 6px 15px;
+  background-color: #0C090A;
+  border: 3px solid #B6B6B4;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.button:focus {
   background-color: #000000;
-  margin: 10px 0 10px 0;
+}
+
+/**Console**/
+.typed-cursor {
+  display: none;
+}
+.fa {
+  float: left;
+}
+.console {
+  background-color: #000000;
+  border: 10px solid #CCC;
+  color: #CCC;
+  display: block;
+  padding: 5px;
 }
