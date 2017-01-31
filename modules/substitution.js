@@ -1,10 +1,10 @@
-function substitutionCipher() {
+function substitutionCipher(payload) {
 
 Letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-myMessage = "If a man is offered a fact which goes against his instincts,he will scrutinize it closely";
-myKey = "LFWOAYUISVKMNXPBDCRJTQEGHZ";
-myMode = "encrypt";
+myMessage = payload.msg
+myMode = payload.mode;
+myKey = payload.key;
 
 function checkValidKey(key) {
 
@@ -27,7 +27,7 @@ function decryptMessage(key, message) {
 }
 
 function translateMessage(key, message, mode) {
-  translated = '';
+  ciphertext = '';
   charsA = Letters;
   charsB = key
 
@@ -41,55 +41,35 @@ function translateMessage(key, message, mode) {
     symIndex = charsA.indexOf(x);
     if(symIndex != -1) {
     if(x) {
-      translated += charsB[symIndex].toUpperCase();
+      ciphertext += charsB[symIndex].toUpperCase();
     } else {
-      translated += charsB[symIndex].toLowerCase();
+      ciphertext += charsB[symIndex].toLowerCase();
     }
   }
   else {
-    translated += message[i];
+    ciphertext += message[i];
   }
 }
 
-return translated
+return ciphertext
 
-}
-
-function getRandomkey() {
-
-  key = Letters.split('');
-
-  function shuffle(array) {
-    var i = 0
-    var j = 0
-    var temp = null
-    for (i = array.length - 1; i > 0; i -= 1 ) {
-      j = Math.floor(Math.random() * (i + 1));
-      temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
-    }
-  }
-
-shuffle(key).join("");
-return key;
 }
 
 checkValidKey(myKey);
 
 if (myMode === "encrypt") {
-  translated = encryptMessage(myKey,myMessage);
+  ciphertext = encryptMessage(myKey,myMessage);
 }
 else if (myMode === "decrypt") {
-  translated = decryptMessage(myKey, myMessage);
+  ciphertext = decryptMessage(myKey, myMessage);
 }
+
+return { plaintext: myMessage, ciphertext: ciphertext }
 
 console.log("Using key: " + myKey);
 console.log("the " + myMode + "ed message is:");
-console.log(translated);
+console.log(ciphertext);
 
 }
-
-substitutionCipher();
 
 module.exports = substitutionCipher

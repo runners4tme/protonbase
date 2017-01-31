@@ -81,3 +81,7 @@ body {
   text-align: center;
   margin: 0;
 }
+
+.footer h6 {
+  padding: 20px 0 25px 0;
+}

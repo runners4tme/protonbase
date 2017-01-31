@@ -13,31 +13,66 @@ $(document).ready(function(){
     return el;
   };
 
-   $('#encryptCaeser').click(function(){
-     /**send data to the server**/
-     value = $("#textarea1").val();
-     socket.emit('caeser', value);
-     $("#textarea2").val('');
-     return false;
+   $('.activate').click(function(){
+     if(this.id === "encryptCaeser"){
+       mode = "encrypt"
+     } else if(this.id === "decryptCaeser"){
+       mode = "decrypt"
+     }
+     //var msg = $("#textarea2").val();
+     //var key = $("#key2").val();
+     //var payload = { key: key, mode:mode , msg: msg }
+     //socket.emit('caeser', payload);
+     //$("#textarea2").val('');
+     //key = $("#key2").val('');
+     //return false;
    });
 
-   $('#decryptCaeser').click(function(){
-     /**send data to the server**/
-     value = $("#textarea1").val()
-     socket.emit('caeser', value);
-     $("#textarea2").val('');
+   $('.activate').click(function(){
+     if(this.id === "encryptSub"){
+       mode = "encrypt"
+     } else if(this.id === "decryptSub"){
+       mode = "decrypt"
+     }
+     var msg = $("#textarea3").val();
+     var key = $("#key3").val();
+     var payload = { key: key, mode:mode , msg: msg }
+     socket.emit('sub', payload);
+     $("#textarea3").val('');
+     key = $("#key3").val('');
      return false;
    });
 
    /**process the data from the server**/
    socket.on('caeser', function(msg){
      header1 = createElement("h3","title","Plain Message:")
-     para1 = createElement("p","para",msg.plainMessage)
+     para1 = createElement("p","para",msg.plaintext)
      header2 = createElement("h3","title","Cipher Message:")
-     para2 = createElement("p","para",msg.cipherMessage)
-     $(".cipher_container").typed({
-        strings: ["Plain Message:" + msg.plainMessage + "Cipher Message:" + msg.cipherMessage],
-        typeSpeed: 0
+     para2 = createElement("p","para",msg.ciphertext)
+     $(".plain_container").typed({
+        strings: ["Plain Message:" + msg.plaintext],
+        typeSpeed: 50
       });
+      $(".cipher_container").typed({
+         strings: ["Cipher Message:" + msg.ciphertext],
+         typeSpeed: 150
+       })
    });
+
+   /**process the data from the server**/
+   socket.on('sub', function(msg){
+     header1 = createElement("h3","title","Plain Message:")
+     para1 = createElement("p","para",msg.plaintext)
+     header2 = createElement("h3","title","Cipher Message:")
+     para2 = createElement("p","para",msg.ciphertext)
+     $(".plain_container").typed({
+        strings: ["Plain Message:" + msg.plaintext],
+        typeSpeed: 50
+      });
+      $(".cipher_container").typed({
+         strings: ["Cipher Message:" + msg.ciphertext],
+         typeSpeed: 150
+       })
+   });
+
 })

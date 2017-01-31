@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('protonbase:server');
 var http = require('http');
 var caeserCipher = require("../modules/caeser");
+var substitutionCipher = require("../modules/substitution");
 
 /**
  * Get port from environment and store in Express.
@@ -24,10 +25,13 @@ var server = http.createServer(app);
 var io = require("socket.io")(server);
 
 io.on("connection",function(socket){
-  socket.on("caeser",function(msg){
-    var payload = { key: 10, mode: "encrypt", msg: msg }
+  socket.on("caeser",function(payload){
     var response = caeserCipher(payload)
     socket.emit("caeser",response)
+  })
+  socket.on("sub",function(payload){
+    var response = substitutionCipher(payload)
+    socket.emit("sub",response)
   })
 })
 

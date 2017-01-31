@@ -1,13 +1,13 @@
 var math = require("./math");
 
 
-function affineCipher() {
+function affineCipher(key, message, mode) {
 
   Symbols = "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 
-  myKey = 820;
-  myMessage = "gK//J";
-  myMode = "decrypt";
+  myKey = key;
+  myMessage = message;
+  myMode = mode;
 
   if (myMode === "encrypt") {
     translated = encryptMessage(myKey, myMessage);
@@ -15,10 +15,6 @@ function affineCipher() {
   else if (myMode === "decrypt") {
     translated = decryptMessage(myKey, myMessage);
   }
-
-  console.log("key: " + myKey);
-  console.log(myMode + "ed text:");
-  console.log(translated);
 
   function getKeyParts(key) {
 
@@ -107,7 +103,5 @@ while(true) {
 }
 
 }
-
-affineCipher();
 
 module.exports = affineCipher
