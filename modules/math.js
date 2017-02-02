@@ -6,17 +6,7 @@ function gcd(a,b) {
   }
 };
 
-//divide the two numbers and get the remainder
-
 function fmi(a, m) {
-
-  function gcd(a,b) {
-    while(a != b) {
-      a = b % a
-      b = a
-      return b
-    }
-  };
 
 //b is the remainder
 b = gcd(a, m);
@@ -25,7 +15,6 @@ b = gcd(a, m);
 if(b != 1){
     return "none"
   }
-//that is check if b is equal to 1 otherwise the key won't work
 
 u1 = 1;
 u2 = 0;

@@ -1,57 +1,62 @@
 var math = require("./math");
 
 
-function affineCipher(key, message, mode) {
+function affineCipher(message, mode) {
 
-  Symbols = "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+  Symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-  myKey = key;
+  myKey = getRandomKey();
   myMessage = message;
   myMode = mode;
 
   if (myMode === "encrypt") {
-    translated = encryptMessage(myKey, myMessage);
+    return encrypt(myKey, myMessage);
     }
   else if (myMode === "decrypt") {
-    translated = decryptMessage(myKey, myMessage);
+    return decrypt(myKey, myMessage);
   }
 
-  function getKeyParts(key) {
+  function getKeys(key) {
 
     keyA = Math.floor(key/Symbols.length);
     keyB = key % Symbols.length;
-    return keyA, keyB
+    return [keyA, keyB]
 
 }
 
 function checkKeys(keyA, keyB, mode) {
 
+  warning = "";
+
   if(keyA === 1 && mode === "encrypt") {
-    console.log('The affine cipher becomes incredibly weak when key A is set to 1. Choose a different key.');
+    warning = 'Cipher too weak. Choose a different key.';
   }
 
   if(keyB === 0 && mode === "encrypt" ) {
-    console.log('The affine cipher becomes incredibly weak when key B is set to 0. Choose a different key.');
+    warning = 'Cipher too weak. Choose a different key.';
   }
 
   if(keyA < 0 || keyB > (Symbols.length - 1)) {
-    console.log("Key A must be greater than 0 and Key B must be between 0 and" + (Symbols.length - 1) );
+    warning = "Key A must be greater than 0 and Key B must be between 0 and" + (Symbols.length - 1);
   }
 
-  x = gcd(keyA, Symbols.length);
+  x = math.gcd(keyA, Symbols.length);
 
   if(x != 1) {
-    console.log('Key A ' + keyA + " and the symbol set size " + Symbols.length + " are not relatively prime. Choose a different key.");
+    warning = 'Key A ' + keyA + " and the symbol set size " + Symbols.length + " are not relatively prime. Choose a different key.";
   }
+
+  return warning;
 
 }
 
-function encryptMessage(key, message) {
+function encrypt(key, message) {
 
-  keyA = getKeyParts(key);
-  keyB = getKeyParts(key);
-  checkKeys(keyA, keyB, 'encrypt');
   ciphertext = "";
+  keys = getKeys(key);
+  keyA = keys[0];
+  keyB = keys[1];
+  checkKeys(keyA, keyB, 'encrypt');
 
   for(i = 0; i < message.length; i++) {
     sysIndex = Symbols.indexOf(message[i]);
@@ -66,25 +71,26 @@ function encryptMessage(key, message) {
    return ciphertext
 }
 
-function decryptMessage(key, message) {
+function decrypt(key, message) {
 
-  keyA = getKeyParts(key);
-  keyB = getKeyParts(key);
+  plaintext = "";
+  keys = getKeys(key);
+  keyA = keys[0];
+  keyB = keys[1];
   modInverseKeyB = math.fmi(keyA, Symbols.length);
+  console.log(modInverseKeyB)
   checkKeys(keyA, keyB, 'decrypt');
-  ciphertext = "";
 
   for(z = 0; z < message.length; z++) {
     sysIndex = Symbols.indexOf(message[z]);
     if (sysIndex === - 1 ) {
-      ciphertext = ciphertext + message[z];
+      plaintext = plaintext + message[z];
       }
     else {
-      ciphertext = ciphertext + Symbols[(sysIndex - keyB) * modInverseKeyB % Symbols.length];
+      plaintext = plaintext + Symbols[(sysIndex - keyB) * modInverseKeyB % Symbols.length];
       }
    }
-
-   return ciphertext
+   return plaintext
 
 }
 
@@ -92,16 +98,19 @@ function getRandomKey() {
 
 while(true) {
 
-  keyA = Math.random(2, Symbols.length)
-  keyB = Math.random(2, Symbols.length)
-  y = gcd(keyA, Symbols.length);
+  keyA = Math.floor(Symbols.length * Math.random())
+  keyB = Math.floor(Symbols.length * Math.random())
+  y = math.gcd(keyA, Symbols.length);
 
   if(y === 1) {
     return keyA * Symbols.length + keyB
     }
   }
-}
 
 }
 
-module.exports = affineCipher
+}
+
+affineCipher("hello", "decrypt")
+
+module.exports = affineCipher;

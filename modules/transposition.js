@@ -1,15 +1,14 @@
 function transpositionCipher(object) {
-  console.log(object)
   var mode = object.mode;
   if (mode === "encrypt") {
-    return encryptMessage(object);
+    return encrypt(object);
   }
   else if (mode === "decrypt") {
-    return decryptMessage(object);
+    return decrypt(object);
   }
 }
 
-function encryptMessage(object){
+function encrypt(object){
 
   var plaintext = object.msg;
   var key = Number(object.key);
@@ -35,7 +34,7 @@ function encryptMessage(object){
 
 }
 
-function decryptMessage(object) {
+function decrypt(object) {
 
   ciphertext = object.msg;
   key = object.key;

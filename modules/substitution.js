@@ -2,13 +2,13 @@ function substitutionCipher(payload) {
 
 Letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-myMessage = payload.msg
-myMode = payload.mode;
-myKey = payload.key;
+message = payload.msg
+mode = payload.mode;
+key = payload.key;
 
-function checkValidKey(key) {
+function validateKey(key) {
 
-keyList = myKey.split('');
+keyList = key.split('');
 LettersList = Letters.split('');
 keyList.sort();
 LettersList.sort();
@@ -18,15 +18,10 @@ if (keyList.length != LettersList.length) {
   }
 }
 
-function encryptMessage(key, message) {
-  return translateMessage(key, message, "encrypt");
-}
+validateKey(key);
 
-function decryptMessage(key, message) {
-  return translateMessage(key, message, "decrypt");
-}
+function processMessage(key, message, mode) {
 
-function translateMessage(key, message, mode) {
   ciphertext = '';
 
   if(mode === "encrypt"){
@@ -56,16 +51,22 @@ return ciphertext
 
 }
 
-checkValidKey(myKey);
+function encrypt(key, message) {
+  return processMessage(key, message, "encrypt");
+}
+
+function decrypt(key, message) {
+  return processMessage(key, message, "decrypt");
+}
 
 if (myMode === "encrypt") {
-  ciphertext = encryptMessage(myKey,myMessage);
+  ciphertext = encrypt(myKey,myMessage);
 }
 else if (myMode === "decrypt") {
-  ciphertext = decryptMessage(myKey, myMessage);
+  ciphertext = decrypt(myKey, myMessage);
 }
 
-return { plaintext: myMessage, ciphertext: ciphertext }
+return { plaintext: message, ciphertext: ciphertext }
 
 }
 

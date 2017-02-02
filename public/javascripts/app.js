@@ -68,13 +68,13 @@ $(document).ready(function(){
        mode = "decrypt"
      }
      //This is working
-     var msg = $("#textarea5").val();
-     var key = $("#key5").val();
-     var payload = { key: key, mode:mode , msg: msg }
-     socket.emit('vigenere', payload);
-     $("#textarea4").val('');
-     $("#key4").val('');
-     return false;
+     //var msg = $("#textarea5").val();
+     //var key = $("#key5").val();
+     //var payload = { key: key, mode:mode , msg: msg }
+     //socket.emit('vigenere', payload);
+     //$("#textarea4").val('');
+     //$("#key4").val('');
+     //return false;
    });
 
    /**process the data from the server**/

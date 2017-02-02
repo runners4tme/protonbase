@@ -5,22 +5,6 @@ function vigenereCipher(object) {
   message = object.msg;
   letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  if (mode === 'encrypt') {
-    return encryptMessage(key, message)
-  } else if(mode === 'decrypt') {
-    return decryptMessage(key, message)
-  }
-
-  function encryptMessage(key, message) {
-    return processMessage(key, message, mode)
-  }
-
-
-  function decryptMessage(key, message) {
-  return processMessage(key, message, mode)
-}
-
-
 function processMessage(key, message, mode) {
 
   text = [];
@@ -77,7 +61,20 @@ function processMessage(key, message, mode) {
 
   return { ciphertext: ciphertext, plaintext: plaintext };
 
-}
+  }
+
+  function encrypt(key, message) {
+    return processMessage(key, message, mode)
+  }
+  function decrypt(key, message) {
+    return processMessage(key, message, mode)
+  }
+
+  if (mode === 'encrypt') {
+    return encrypt(key, message)
+  } else if(mode === 'decrypt') {
+    return decrypt(key, message)
+  }
 
 }
 

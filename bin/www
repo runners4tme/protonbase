@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('protonbase:server');
 var http = require('http');
 var caeserCipher = require("../modules/caeser");
+var affineCipher = require("../modules/affine");
 var substitutionCipher = require("../modules/substitution");
 var transpositionCipher = require("../modules/transposition");
 var vigenereCipher = require("../modules/vigenere");
