@@ -9,6 +9,7 @@ var debug = require('debug')('protonbase:server');
 var http = require('http');
 var caeserCipher = require("../modules/caeser");
 var substitutionCipher = require("../modules/substitution");
+var transpositionCipher = require("../modules/transposition");
 
 /**
  * Get port from environment and store in Express.
@@ -32,6 +33,10 @@ io.on("connection",function(socket){
   socket.on("sub",function(payload){
     var response = substitutionCipher(payload)
     socket.emit("sub",response)
+  })
+  socket.on("trans",function(payload){
+    var response = transpositionCipher(payload)
+    socket.emit("trans",response)
   })
 })
 

@@ -1,55 +1,60 @@
-function transposition(object){
+function transpositionCipher(object) {
+  console.log(object)
+  var mode = object.mode;
+  if (mode === "encrypt") {
+    return encryptMessage(object);
+  }
+  else if (mode === "decrypt") {
+    return decryptMessage(object);
+  }
+}
 
-  var plainText = object.msg ;
-  var key = object.key;
-  var ciphertext = new Array(key);
+function encryptMessage(object){
+
+  var plaintext = object.msg;
+  var key = Number(object.key);
+  var text = new Array(key);
 
   for (j = 0; j < key; j++) {
-    if (ciphertext[j] === undefined) {
-      ciphertext[j] = "";
+    if (text[j] === undefined) {
+      text[j] = "";
     }
   }
 
   for (i = 0; i < key; i++) {
     var pointer = i;
-    while (pointer < plainText.length) {
-       ciphertext[i] = ciphertext[i] + plainText[pointer]
+    while (pointer < plaintext.length) {
+       text[i] = text[i] + plaintext[pointer]
        pointer = pointer + key
     }
   }
 
-  var cipherMessage = "";
+  var ciphertext = text.join("");
 
-  ciphertext.map(function(text) {
-    cipherMessage = cipherMessage + text;
-  })
-
-  return { plainMessage:plainText, cipherMessage:cipherMessage }
+  return { plaintext:plaintext, ciphertext:ciphertext }
 
 }
 
-exports.transposition = transposition;
+function decryptMessage(object) {
 
-function transpositionDecrypt(object) {
-
-  message = object.msg;
+  ciphertext = object.msg;
   key = object.key;
-  numOfColumns = Math.ceil(message.length/key);
+  numOfColumns = Math.ceil(ciphertext.length/key);
   numOfRows = key
-  numOfShadedBoxes = (numOfColumns * numOfRows) - message.length
-  plainText = new Array(numOfColumns)
+  numOfShadedBoxes = (numOfColumns * numOfRows) - ciphertext.length
+  text = new Array(numOfColumns)
 
   for (j = 0; j < numOfColumns ; j++) {
-    if (plainText[j] === undefined) {
-      plainText[j] = "";
+    if (text[j] === undefined) {
+      text[j] = "";
     }
   }
 
   col = 0
   row = 0
 
-  for(i = 0; i < message.length; i++) {
-    plainText[col] = plainText[col] + message[i]
+  for(i = 0; i < ciphertext.length; i++) {
+    text[col] = text[col] + ciphertext[i]
     col = col + 1
     if (col === numOfColumns || col === (numOfColumns - 1) && row >= (numOfRows - numOfShadedBoxes)) {
       col = 0
@@ -57,14 +62,10 @@ function transpositionDecrypt(object) {
     }
   }
 
-  plainMessage = "";
+  var plaintext = text.join("");
 
-  plainText.map(function(text) {
-    plainMessage = plainMessage + text;
-  })
-
-  return { plainMessage:plainMessage, cipherMessage:message } 
+  return { plaintext:plaintext, ciphertext:ciphertext }
 
 }
 
-exports.transpositionDecrypt = transpositionDecrypt
+module.exports = transpositionCipher;

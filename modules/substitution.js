@@ -28,22 +28,23 @@ function decryptMessage(key, message) {
 
 function translateMessage(key, message, mode) {
   ciphertext = '';
-  charsA = Letters;
-  charsB = key
 
-  if (mode === "decrypt") {
-    charsA = charsB;
-    charsB = charsA;
+  if(mode === "encrypt"){
+    characterA = Letters;
+    characterB = key;
+  } else if (mode === "decrypt") {
+    characterA = key;
+    characterB = Letters;
   }
 
   for(i = 0; i < message.length; i++) {
     x = message[i].toUpperCase();
-    symIndex = charsA.indexOf(x);
+    symIndex = characterA.indexOf(x);
     if(symIndex != -1) {
     if(x) {
-      ciphertext += charsB[symIndex].toUpperCase();
+      ciphertext += characterB[symIndex].toUpperCase();
     } else {
-      ciphertext += charsB[symIndex].toLowerCase();
+      ciphertext += characterB[symIndex].toLowerCase();
     }
   }
   else {
@@ -65,10 +66,6 @@ else if (myMode === "decrypt") {
 }
 
 return { plaintext: myMessage, ciphertext: ciphertext }
-
-console.log("Using key: " + myKey);
-console.log("the " + myMode + "ed message is:");
-console.log(ciphertext);
 
 }
 
