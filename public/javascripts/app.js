@@ -52,10 +52,26 @@ $(document).ready(function(){
        mode = "decrypt"
      }
      //This is working
-     var msg = $("#textarea4").val();
-     var key = $("#key4").val();
+     //var msg = $("#textarea4").val();
+     //var key = $("#key4").val();
+     //var payload = { key: key, mode:mode , msg: msg }
+     //socket.emit('trans', payload);
+     //$("#textarea4").val('');
+     //$("#key4").val('');
+     //return false;
+   });
+
+   $('.activate').click(function(){
+     if(this.id === "encryptVig"){
+       mode = "encrypt"
+     } else if(this.id === "decryptVig"){
+       mode = "decrypt"
+     }
+     //This is working
+     var msg = $("#textarea5").val();
+     var key = $("#key5").val();
      var payload = { key: key, mode:mode , msg: msg }
-     socket.emit('trans', payload);
+     socket.emit('vigenere', payload);
      $("#textarea4").val('');
      $("#key4").val('');
      return false;
@@ -95,6 +111,22 @@ $(document).ready(function(){
 
    /**process the data from the server**/
    socket.on('trans', function(msg){
+     header1 = createElement("h3","title","Plain Message:")
+     para1 = createElement("p","para",msg.plaintext)
+     header2 = createElement("h3","title","Cipher Message:")
+     para2 = createElement("p","para",msg.ciphertext)
+     $(".plain_container").typed({
+        strings: ["Plain Message:" + msg.plaintext],
+        typeSpeed: 50
+      });
+      $(".cipher_container").typed({
+         strings: ["Cipher Message:" + msg.ciphertext],
+         typeSpeed: 150
+       })
+   });
+
+   /**process the data from the server**/
+   socket.on('vigenere', function(msg){
      header1 = createElement("h3","title","Plain Message:")
      para1 = createElement("p","para",msg.plaintext)
      header2 = createElement("h3","title","Cipher Message:")

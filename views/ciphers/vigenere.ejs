@@ -14,10 +14,11 @@
 
       <div class="row">
         <p class="descBody col s8 offset-s2">
-          This is a polialphabetic substitution cipher that that uses a single word that is normally split into a multiple subkeys.
+          This is a polyalphabetic substitution cipher that that use characters of a sentence or word as keys.
+          The characters are split into a multiple subkeys.
           The more letters are provided as keys, the stronger it will be the encrypted message. The key can be a combo
-          of words and numbers just more make it more harder. A key word of 3 words was normally sufficient for a normal distribution.
-          C = (p, k) where j = 0 and the  decryption is p = x, c = (x,k) where j = i mod 6.
+          of words and numbers just more make it more harder. A key of a sentence of 3 words is normally sufficient for a normal distribution.
+          Mathematically the encryption can be denoted as C = (p, k) where j = 0.
         </p>
       </div>
 
@@ -25,16 +26,14 @@
 
       <div class="row">
         <p class="descBody col s8 offset-s2">
+          Mathematically the decryption is p = x, c = (x,k) where j = i mod 6.
           Do not use a word in the dictionary because it will obviously make your code prone to dictionary attack.
           This mean that the hacker will attempt to unlock it with every word as key key in the dictionery.
           Cryptanalysis means that we find the words with high frequency.
           It was called the indecipherable cipher for a good reason.
-          Kasinki examination.
-          This cipher was regarded as unbreakable until charles baggage broke it but never published his papaer.
-          Identify the patterns of three or more characters.
-          Write down the begining position of each pattern.
-          Compute the differences between the starting point and the ending point.
-          Determine all the factors for the differences.
+          Kasinki examination. This cipher was regarded as unbreakable until charles baggage broke it but never published his papaer.
+          Identify the patterns of three or more characters. Write down the begining position of each pattern.
+          Compute the differences between the starting point and the ending point. Determine all the factors for the differences.
           Key is one of the most common factors.
         </p>
       </div>
@@ -65,8 +64,9 @@
 
     <div class="row">
       <div class="col s12">
-        <button id="encryptVigenere" class="button">Encrypt</button>
-        <button id="decryptVigenere" class="button">Decrypt</button>
+        <button id="encryptVig" class="activate button">Encrypt</button>
+        <button class="button"><input id="key5" type="text" required></button>
+        <button id="decryptVig" class="activate button">Decrypt</button>
       </div>
     </div>
 

@@ -10,6 +10,7 @@ var http = require('http');
 var caeserCipher = require("../modules/caeser");
 var substitutionCipher = require("../modules/substitution");
 var transpositionCipher = require("../modules/transposition");
+var vigenereCipher = require("../modules/vigenere");
 
 /**
  * Get port from environment and store in Express.
@@ -37,6 +38,10 @@ io.on("connection",function(socket){
   socket.on("trans",function(payload){
     var response = transpositionCipher(payload)
     socket.emit("trans",response)
+  })
+  socket.on("vigenere",function(payload){
+    var response = vigenereCipher(payload)
+    socket.emit("vigenere",response)
   })
 })
 

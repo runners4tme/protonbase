@@ -1,31 +1,31 @@
-function main(key, message,mode){
+function vigenereCipher(object) {
 
-  key = key;
-  mode = mode;
-  message = message;
+  key = object.key;
+  mode = object.mode;
+  message = object.msg;
   letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  if (mode === 'encrypt'){
-    translated = encryptMessage(key, message)
+  if (mode === 'encrypt') {
+    return encryptMessage(key, message)
   } else if(mode === 'decrypt') {
-    translated = decryptMessage(key, message)
+    return decryptMessage(key, message)
   }
 
-  console.log(translated)
-
-  function encryptMessage(key, message){
-    return translateMessage(key, message, 'encrypt')
+  function encryptMessage(key, message) {
+    return processMessage(key, message, mode)
   }
 
 
-  function decryptMessage(key, message){
-  return translateMessage(key, message, 'decrypt')
+  function decryptMessage(key, message) {
+  return processMessage(key, message, mode)
 }
 
 
-function translateMessage(key, message, mode){
+function processMessage(key, message, mode) {
 
-  translated = [];
+  text = [];
+  ciphertext = "";
+  plaintext = "";
   keyIndex = 0;
   key = key.toUpperCase();
 
@@ -47,29 +47,38 @@ function translateMessage(key, message, mode){
           number = number + letters.length
         }
 
-     //fix the case!
-      if (!message[a].toUpperCase()){
-        translated.push(letters[number])
-      } else if(!message[a].toLowerCase()){
-        translated.push(letters[number].toLowerCase())
+      if (/[A-Z]/.test(message[a])){
+        text.push(letters[number])
+      } else if(/[a-z]/.test(message[a])){
+        text.push(letters[number].toLowerCase())
       }
 
       keyIndex += 1
 
-      if (keyIndex === key.length){
+      if (keyIndex === key.length) {
         keyIndex = 0
       }
 
     }
    else {
-      translated.push(message[a])
+      text.push(message[a])
     }
   }
 
-   return translated.join('');
+  text = text.join('');
+
+  if(mode === 'encrypt'){
+    plaintext = message;
+    ciphertext = text;
+  } else if(mode === 'decrypt'){
+    plaintext = text;
+    ciphertext = message;
+  }
+
+  return { ciphertext: ciphertext, plaintext: plaintext };
 
 }
 
 }
 
-main("hellow","happy","encrypt")
+module.exports = vigenereCipher;
