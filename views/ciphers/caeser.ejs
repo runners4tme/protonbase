@@ -19,13 +19,10 @@
           It works by adding a key repeatedly to the of the letters in the plaintext where the letters of the alphabet represent keys
           in this order A = 0 and Z = 25 and the addition is computed modulo 26. Therefore it has 26 possible keys.
         </p>
-        <div class="descBody col s8 offset-s2">
-          <h6 class="col s12">Mathematically we denote the ciphertext as C = P + K mod 26.</h6>
-          <p class="col s12">Legends:</p>
-          <span class="col s12">C => Ciphertext </span>
-          <span class="col s12">P => Plaintext</span>
-          <span class="col s12">K => key</span>
-        </div>
+        <p class="descBody col s8 offset-s2">
+          Mathematically we denote the ciphertext as C = P + K mod 26.
+          Where C is the Ciphertext, P is the plaintext and K is the key.
+        </p>
           <p class="descBody col s8 offset-s2">
           To encrypt our ciphertext, we loop through each letter in the plaintext and check if that letter is part of the alphabet order.
           If it is not part of it, we just add it to the ciphertext text as it is, for example space or any of the special characters.
@@ -42,13 +39,10 @@
            To decrypt is also simple, all we have to do is to subtract the key from the position of the letter
            and if the result is below zero we simple add 25 to make sure that it is within the desired range.
          </p>
-         <div class="descBody col s8 offset-s2">
-           <h6 class="col s12">Mathematically we denote the plaintext as P = C + Kinverse mod 26.</h6>
-           <p class="col s12">Legends:</p>
-           <span class="col s12">C => Ciphertext </span>
-           <span class="col s12">P => Plaintext</span>
-           <span class="col s12">K => key</span>
-         </div>
+         <p class="descBody col s8 offset-s2">
+           Mathematically we denote the plaintext as P = C + Ke mod 26.
+           The C is the ciphertext, P is the plaintext and Ke is the key.
+         </p>
          <p class="descBody col s8 offset-s2">
            The problem with this cipher is that is is easy to break because you only have to loop throughout 26 keys
            and the key that will return the plaintext that is readable is the encryption key that was used for the ciphertext.
@@ -62,19 +56,17 @@
           <div class="console">
 
             <div class="row">
+              <div class="col l12">
+                <div class="plain_container">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
               <div class="input-field col l12">
                 <i class="fa fa-chevron-right"></i>
                 <textarea id="textarea2" class="materialize-textarea"></textarea>
              </div>
-            </div>
-
-            <div class="row">
-              <div class="col l12">
-                <div class="plain_container">
-                </div>
-                <div class="cipher_container">
-                </div>
-              </div>
             </div>
 
           </div>
@@ -84,7 +76,6 @@
       <div class="row">
         <div class="col l12">
           <button id="encryptCaeser" class="activate button">Encrypt</button>
-          <button class="button"><input id="key2" type="number" max="25" min="0" required></button>
           <button id="decryptCaeser" class="activate button">Decrypt</button>
         </div>
       </div>

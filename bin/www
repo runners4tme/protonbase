@@ -28,21 +28,32 @@ var server = http.createServer(app);
 var io = require("socket.io")(server);
 
 io.on("connection",function(socket){
-  socket.on("caeser",function(payload){
-    var response = caeserCipher(payload)
-    socket.emit("caeser",response)
-  })
-  socket.on("sub",function(payload){
-    var response = substitutionCipher(payload)
-    socket.emit("sub",response)
-  })
-  socket.on("trans",function(payload){
-    var response = transpositionCipher(payload)
-    socket.emit("trans",response)
-  })
-  socket.on("vigenere",function(payload){
-    var response = vigenereCipher(payload)
-    socket.emit("vigenere",response)
+  var message = "Write your message here!";
+  socket.emit("introduction",message);
+  socket.on("message",function(payload){
+    var cipher = payload.cipher;
+    console.log(cipher)
+    switch (cipher) {
+      case "Affine":
+        var response = affineCipher(payload);
+        break;
+      case "Caeser":
+        var response = caeserCipher(payload);
+        break;
+      case "Sub":
+        var response = substitutionCipher(payload);
+        break;
+      case "Trans":
+        var response = transpositionCipher(payload);
+        break;
+      case "Vig":
+        var response = vigenereCipher(payload);
+        break;
+      default:
+        var response = "Unknown cipher";
+    }
+    console.log(response)
+    socket.emit("message",response)
   })
 })
 

@@ -1,6 +1,6 @@
 function vigenereCipher(object) {
 
-  key = object.key;
+  key = "FRUITS";
   mode = object.mode;
   message = object.msg;
   letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

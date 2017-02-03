@@ -1,8 +1,19 @@
 /**global**/
 
 body {
-  font-family: serif;
-  background-color: #FEFCFF;
+  background-color: #FFFFFF;
+  font-family: 'Electrolize', sans-serif;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-family: 'Bungee Shade', cursive;
+  font-family: 'Special Elite', cursive;
+  font-family: 'Cinzel', serif;
+  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Squada One', cursive;
+  font-family: 'Bungee Inline', cursive;
+  font-family: 'VT323', monospace;
+  font-family: 'Electrolize', sans-serif;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-family: 'Stardos Stencil', cursive;
 }
 
 /**navigation bar**/

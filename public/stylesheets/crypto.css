@@ -8,7 +8,7 @@
   text-align: left;
 }
 
-.reverse, .ceaser, .transposition, .affine, .substitution, .vigenere {
+ .ceaser, .transposition, .affine, .substitution, .vigenere {
   padding: 15px 0 15px 0;
   text-align: center;
 }
@@ -18,9 +18,8 @@
   text-align: left;
 }
 
-.cipher_container {
-  color: #00FF00;
-  text-align: left;
+.plain_container p.para {
+  margin: 0;
 }
 
 /**button**/

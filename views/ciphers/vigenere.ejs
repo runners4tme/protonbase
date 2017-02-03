@@ -8,6 +8,7 @@
     <% include ../components/header %>
 
     <div class="vigenere">
+
       <h4 class="name">Vigenere Cipher</h4>
 
       <h5 class="description">Encryption</h5>
@@ -18,6 +19,8 @@
           The characters are split into a multiple subkeys.
           The more letters are provided as keys, the stronger it will be the encrypted message. The key can be a combo
           of words and numbers just more make it more harder. A key of a sentence of 3 words is normally sufficient for a normal distribution.
+        </p>
+        <p class="descBody col s8 offset-s2">
           Mathematically the encryption can be denoted as C = (p, k) where j = 0.
         </p>
       </div>
@@ -26,9 +29,13 @@
 
       <div class="row">
         <p class="descBody col s8 offset-s2">
-          Mathematically the decryption is p = x, c = (x,k) where j = i mod 6.
           Do not use a word in the dictionary because it will obviously make your code prone to dictionary attack.
           This mean that the hacker will attempt to unlock it with every word as key key in the dictionery.
+        </p>
+        <p class="descBody col s8 offset-s2">
+          Mathematically the decryption is p = x, c = (x,k) where j = i mod 6.
+        </p>
+        <p class="descBody col s8 offset-s2">
           Cryptanalysis means that we find the words with high frequency.
           It was called the indecipherable cipher for a good reason.
           Kasinki examination. This cipher was regarded as unbreakable until charles baggage broke it but never published his papaer.
@@ -65,7 +72,6 @@
     <div class="row">
       <div class="col s12">
         <button id="encryptVig" class="activate button">Encrypt</button>
-        <button class="button"><input id="key5" type="text" required></button>
         <button id="decryptVig" class="activate button">Decrypt</button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 function caeser(object){
 
 var plaintext = object.msg;
-var key = Number(object.key);
+var key = 10;
 var mode = object.mode;
 var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var ciphertext = '';

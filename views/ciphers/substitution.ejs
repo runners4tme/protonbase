@@ -21,12 +21,10 @@
           The simple substitution can not be hack by a brute-force attack.
           To encrypt our plaintext, we use a key of randomly selected alphabet in no particular order.
         </p>
-        <div class="descBody col s8 offset-s2">
-          <h6 class="col s12">Mathematically we denote the ciphertext as Pie: X -> X.</h6>
-          <p class="col s12">Legends:</p>
-          <span class="col s12">X => Ciphertext </span>
-          <span class="col s12">X => Plaintext</span>
-        </div>
+        <p class="descBody col s8 offset-s2">
+          Mathematically we denote the ciphertext as Pie: X -> X.
+          Where X is the plaintext and X is the ciphertext
+        </p>
       </div>
 
       <h5 class="description">Decryption</h5>
@@ -37,12 +35,9 @@
           To decrypt it, we need to find the inverse of the letter initially used.
           We simply use the key as the aphabet and find the inverse of it. Simple as ABC.
         </p>
-          <div class="descBody col s8 offset-s2">
-            <h6 class="col s12">Mathematically we denote the ciphertext as pie to the power of -1</h6>
-            <p class="col s12">Legends:</p>
-            <span class="col s12">C => Ciphertext </span>
-            <span class="col s12">P => Plaintext</span>
-          </div>
+          <p class="descBody col s8 offset-s2">
+            Mathematically we denote the ciphertext as pie to the power of -1
+          </p>
           <p class="descBody col s8 offset-s2">
           We need to employ a clever way to do this.
           We have to check a word pattern for each word, and each word and the plaintext will always the same word pattern.
@@ -81,7 +76,6 @@
       <div class="row">
         <div class="col s12">
           <button id="encryptSub" class="activate button">Encrypt</button>
-          <button class="button"><input id="key3" type="text" length="26" required></button>
           <button id="decryptSub" class="activate button">Decrypt</button>
         </div>
       </div>

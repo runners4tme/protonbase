@@ -78,7 +78,6 @@ function decrypt(key, message) {
   keyA = keys[0];
   keyB = keys[1];
   modInverseKeyB = math.fmi(keyA, Symbols.length);
-  console.log(modInverseKeyB)
   checkKeys(keyA, keyB, 'decrypt');
 
   for(z = 0; z < message.length; z++) {

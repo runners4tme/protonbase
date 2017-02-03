@@ -4,7 +4,7 @@ Letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 message = payload.msg
 mode = payload.mode;
-key = payload.key;
+key = "WERTYUIOPASDFGHJKLZXCVBNM";
 
 function validateKey(key) {
 
@@ -13,9 +13,6 @@ LettersList = Letters.split('');
 keyList.sort();
 LettersList.sort();
 
-if (keyList.length != LettersList.length) {
-  console.log("there is an error in the key or symbol set");
-  }
 }
 
 validateKey(key);

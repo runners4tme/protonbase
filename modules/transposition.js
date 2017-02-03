@@ -11,7 +11,7 @@ function transpositionCipher(object) {
 function encrypt(object){
 
   var plaintext = object.msg;
-  var key = Number(object.key);
+  var key = 5;
   var text = new Array(key);
 
   for (j = 0; j < key; j++) {
@@ -37,7 +37,7 @@ function encrypt(object){
 function decrypt(object) {
 
   ciphertext = object.msg;
-  key = object.key;
+  key = 5;
   numOfColumns = Math.ceil(ciphertext.length/key);
   numOfRows = key
   numOfShadedBoxes = (numOfColumns * numOfRows) - ciphertext.length
