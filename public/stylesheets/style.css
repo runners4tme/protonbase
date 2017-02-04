@@ -20,7 +20,7 @@ body {
   background-color: #000000;
 }
 
-.nav-wrapper ul:last-child {
+.nav-wrapper .top-bar ul:last-child {
   top: 45px !important;
   width: 150px !important;
   background-color: #000000;
@@ -71,6 +71,9 @@ body {
 }
 .ciphers .cipher h2 {
   padding: 10px;
+}
+.ciphers .cipher a {
+  color: #FFFFFF;
 }
 
 /**footer**/

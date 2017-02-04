@@ -10,7 +10,7 @@ p.descriptionBody {
   text-align: left;
 }
 p.descriptionBody::first-letter {
-  font: bold italic 3em / .8 serif;
+  font: bold italic 2em / .8 serif;
   font-style: italic;
   color: #607d8b;
   float: left;
