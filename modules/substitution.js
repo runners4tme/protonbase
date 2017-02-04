@@ -1,32 +1,22 @@
 function substitutionCipher(payload) {
 
-Letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-message = payload.msg
-mode = payload.mode;
-key = "WERTYUIOPASDFGHJKLZXCVBNM";
-
-function validateKey(key) {
-
-keyList = key.split('');
-LettersList = Letters.split('');
-keyList.sort();
-LettersList.sort();
-
-}
-
-validateKey(key);
+  message = payload.msg;
+  mode = payload.mode;
+  key = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
 function processMessage(key, message, mode) {
 
-  ciphertext = '';
+  letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  text = '';
+  characterA = '';
+  characterB = '';
 
-  if(mode === "encrypt"){
-    characterA = Letters;
+  if(mode === "encrypt") {
+    characterA = letters;
     characterB = key;
   } else if (mode === "decrypt") {
     characterA = key;
-    characterB = Letters;
+    characterB = letters;
   }
 
   for(i = 0; i < message.length; i++) {
@@ -34,36 +24,42 @@ function processMessage(key, message, mode) {
     symIndex = characterA.indexOf(x);
     if(symIndex != -1) {
     if(x) {
-      ciphertext += characterB[symIndex].toUpperCase();
+      text += characterB[symIndex].toUpperCase();
     } else {
-      ciphertext += characterB[symIndex].toLowerCase();
+      text += characterB[symIndex].toLowerCase();
     }
   }
   else {
-    ciphertext += message[i];
+    text += message[i];
   }
 }
 
-return ciphertext
+if(mode === 'encrypt'){
+  plaintext = message;
+  ciphertext = text;
+} else if(mode === 'decrypt'){
+  plaintext = text;
+  ciphertext = message;
+}
+
+return { plaintext: plaintext, ciphertext: ciphertext }
 
 }
 
-function encrypt(key, message) {
-  return processMessage(key, message, "encrypt");
+function encrypt(mykey, myMessage, myMode) {
+  return processMessage(mykey, myMessage, myMode);
 }
 
-function decrypt(key, message) {
-  return processMessage(key, message, "decrypt");
+function decrypt(mykey, myMessage, myMode) {
+  return processMessage(mykey, myMessage, myMode);
 }
 
 if (myMode === "encrypt") {
-  ciphertext = encrypt(myKey,myMessage);
+  return encrypt(key, message, mode);
 }
 else if (myMode === "decrypt") {
-  ciphertext = decrypt(myKey, myMessage);
+  return decrypt(key, message, mode);
 }
-
-return { plaintext: message, ciphertext: ciphertext }
 
 }
 

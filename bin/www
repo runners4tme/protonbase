@@ -32,7 +32,6 @@ io.on("connection",function(socket){
   socket.emit("introduction",message);
   socket.on("message",function(payload){
     var cipher = payload.cipher;
-    console.log(cipher)
     switch (cipher) {
       case "Affine":
         var response = affineCipher(payload);
@@ -52,7 +51,6 @@ io.on("connection",function(socket){
       default:
         var response = "Unknown cipher";
     }
-    console.log(response)
     socket.emit("message",response)
   })
 })

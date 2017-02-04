@@ -17,11 +17,11 @@ $(document).ready(function(){
      var buttonId = this.id;
      var mode = buttonId.slice(0,7);
      var cipher = buttonId.slice(7,buttonId.length);
-     var msg = $("#textarea2").val();
+     var textarea = "#textarea" + cipher
+     var msg = $(textarea).val();
      var payload = { mode:mode , msg: msg, cipher: cipher }
-     console.log(payload)
      socket.emit("message", payload);
-     $("#textarea2").val('');
+     $(textarea).val('');
      return false;
    });
 
