@@ -3,10 +3,10 @@ function vigenereCipher(object) {
   key = "FRUITS";
   mode = object.mode;
   message = object.msg;
-  letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function processMessage(key, message, mode) {
 
+  letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   text = [];
   ciphertext = "";
   plaintext = "";
@@ -63,17 +63,17 @@ function processMessage(key, message, mode) {
 
   }
 
-  function encrypt(key, message) {
-    return processMessage(key, message, mode)
+  function encrypt(myKey, myMessage, myMode) {
+    return processMessage(myKey, myMessage, myMode)
   }
-  function decrypt(key, message) {
-    return processMessage(key, message, mode)
+  function decrypt(myKey, myMessage, myMode) {
+    return processMessage(myKey, myMessage, myMode)
   }
 
   if (mode === 'encrypt') {
-    return encrypt(key, message)
+    return encrypt(key, message, mode)
   } else if(mode === 'decrypt') {
-    return decrypt(key, message)
+    return decrypt(key, message, mode)
   }
 
 }

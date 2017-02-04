@@ -1,12 +1,6 @@
 function transpositionCipher(object) {
+
   var mode = object.mode;
-  if (mode === "encrypt") {
-    return encrypt(object);
-  }
-  else if (mode === "decrypt") {
-    return decrypt(object);
-  }
-}
 
 function encrypt(object){
 
@@ -65,6 +59,14 @@ function decrypt(object) {
 
   return { plaintext:plaintext, ciphertext:ciphertext }
 
+}
+
+if (mode === "encrypt") {
+  return encrypt(object);
+}
+else if (mode === "decrypt") {
+  return decrypt(object);
+}
 }
 
 module.exports = transpositionCipher;

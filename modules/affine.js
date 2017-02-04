@@ -1,26 +1,33 @@
 var math = require("./math");
 
 
-function affineCipher(message, mode) {
+function affineCipher(object) {
 
   Symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  key = getRandomKey();
+  message = object.msg;
+  mode = object.mode;
 
-  myKey = getRandomKey();
-  myMessage = message;
-  myMode = mode;
+  function getRandomKey() {
 
-  if (myMode === "encrypt") {
-    return encrypt(myKey, myMessage);
+  while(true) {
+
+    keyA = Math.floor(Symbols.length * Math.random());
+    keyB = Math.floor(Symbols.length * Math.random());
+    y = math.gcd(keyA, Symbols.length);
+
+    if(y === 1) {
+      return keyA * Symbols.length + keyB;
+      }
     }
-  else if (myMode === "decrypt") {
-    return decrypt(myKey, myMessage);
+
   }
 
   function getKeys(key) {
 
     keyA = Math.floor(key/Symbols.length);
     keyB = key % Symbols.length;
-    return [keyA, keyB]
+    return [keyA, keyB];
 
 }
 
@@ -50,13 +57,13 @@ function checkKeys(keyA, keyB, mode) {
 
 }
 
-function encrypt(key, message) {
+function encrypt(myKey, myMessage, myMode) {
 
   ciphertext = "";
   keys = getKeys(key);
   keyA = keys[0];
   keyB = keys[1];
-  checkKeys(keyA, keyB, 'encrypt');
+  checkKeys(keyA, keyB, myMode);
 
   for(i = 0; i < message.length; i++) {
     sysIndex = Symbols.indexOf(message[i]);
@@ -69,16 +76,17 @@ function encrypt(key, message) {
    }
 
    return ciphertext
+   
 }
 
-function decrypt(key, message) {
+function decrypt(myKey, myMessage, myMode) {
 
   plaintext = "";
   keys = getKeys(key);
   keyA = keys[0];
   keyB = keys[1];
   modInverseKeyB = math.fmi(keyA, Symbols.length);
-  checkKeys(keyA, keyB, 'decrypt');
+  checkKeys(keyA, keyB, myMode);
 
   for(z = 0; z < message.length; z++) {
     sysIndex = Symbols.indexOf(message[z]);
@@ -89,27 +97,20 @@ function decrypt(key, message) {
       plaintext = plaintext + Symbols[(sysIndex - keyB) * modInverseKeyB % Symbols.length];
       }
    }
+
    return plaintext
 
 }
 
-function getRandomKey() {
-
-while(true) {
-
-  keyA = Math.floor(Symbols.length * Math.random())
-  keyB = Math.floor(Symbols.length * Math.random())
-  y = math.gcd(keyA, Symbols.length);
-
-  if(y === 1) {
-    return keyA * Symbols.length + keyB
-    }
+if (mode === "encrypt") {
+  return encrypt(key, message, mode);
   }
-
+else if (mode === "decrypt") {
+  return decrypt(key, message, mode);
 }
 
 }
 
-affineCipher("hello", "decrypt")
+console.log(affineCipher({msg:"hello", mode:"decrypt"}))
 
 module.exports = affineCipher;

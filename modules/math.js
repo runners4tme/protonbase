@@ -1,19 +1,19 @@
 function gcd(a,b) {
-  while(a != b) {
+  while(a !== b) {
     a = b % a
     b = a
-    return b
   }
+  return b
 };
 
-function fmi(a, m) {
+function fmi(a,m) {
 
 //b is the remainder
 b = gcd(a, m);
 
 //check if b in inverse modular
 if(b != 1){
-    return "none"
+    return "none";
   }
 
 u1 = 1;
@@ -24,7 +24,7 @@ v1 = 0;
 v2 = 1;
 v3 = m;
 
-while (v3 != 0) {
+while (v3 !== 0) {
 
   q = Math.floor(u3 / v3);
 
@@ -36,9 +36,16 @@ while (v3 != 0) {
   v2 = (u2 - q * v2);
   v3 = (u3 - q * v3);
 
+  }
+
+return u1 % m;
+
 }
-return u1 % m
-}
+
+//fix the highest common denominator
+console.log(gcd(51, 52));
+//fix the modular inverse
+console.log(fmi(5, 26));
 
 exports.gcd = gcd;
 exports.fmi = fmi;
