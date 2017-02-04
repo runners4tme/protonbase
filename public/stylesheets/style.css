@@ -1,5 +1,4 @@
 /**global**/
-
 body {
   background-color: #FFFFFF;
   font-family: 'Electrolize', sans-serif;
@@ -17,8 +16,13 @@ body {
 }
 
 /**navigation bar**/
-
 .nav-wrapper {
+  background-color: #000000;
+}
+
+.nav-wrapper ul:last-child {
+  top: 45px !important;
+  width: 150px !important;
   background-color: #000000;
 }
 
@@ -27,22 +31,11 @@ body {
   font-weight: bolder;
 }
 
-.nav-wrapper ul li a:hover {
-  background-color: #2C3539;
-  color: #FFFFFF;
-}
-
 .nav-wrapper ul li a {
   color: #FFFFFF;
 }
 
-.nav-wrapper #dropdownMenu {
-  top: 45px !important;
-  width: 150px !important;
-  background-color: #000000;
-}
-
-.nav-wrapper #dropdownMenu li:hover {
+.nav-wrapper ul li:hover {
   background-color: #2C3539;
 }
 
@@ -61,7 +54,6 @@ body {
 }
 
 /**info**/
-
 .info {
   padding: 200px 0 310px;
   text-align: center;
@@ -70,30 +62,20 @@ body {
 }
 
 /**ciphers**/
-
 .ciphers {
   text-align: center;
 }
-
 .ciphers .cipher {
   background-color: #000000;
   color: #FFFFFF;
 }
-
 .ciphers .cipher h2 {
   padding: 10px;
 }
 
 /**footer**/
-
 .page-footer {
   color: #FFFFFF;
   text-align: center;
   margin: 0;
-}
-
-
-
-.page-footer h6 {
-  padding: 20px 0 25px 0;
 }

@@ -1,7 +1,18 @@
 {
-  "name": "easyTax",
-  "version": "0.0.0",
+  "name": "Protonbase",
+  "description": "The history of cryptography",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Latani Masithi",
+    "email": "runners4tme@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+  "type": "git",
+   "url": "https://github.com/runners4tme/protonbase"
+  },
+  "keywords":["affine","caeser","substitution","transposition","vigenere","ciphers"],
   "scripts": {
     "start": "node ./bin/www"
   },

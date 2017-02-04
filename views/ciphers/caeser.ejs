@@ -14,36 +14,35 @@
       <h5 class="description">Encryption</h5>
 
       <div class="row">
-        <p class="descBody col s8 offset-s2">
+        <p class="descriptionBody col s8 offset-s2">
           A ceaser cipher is a monoalphabetic substitution cipher that was named after Julius Ceaser.
           It works by adding a key repeatedly to the of the letters in the plaintext where the letters of the alphabet represent keys
           in this order A = 0 and Z = 25 and the addition is computed modulo 26. Therefore it has 26 possible keys.
         </p>
-        <p class="descBody col s8 offset-s2">
-          Mathematically we denote the ciphertext as C = P + K mod 26.
-          Where C is the Ciphertext, P is the plaintext and K is the key.
+        <p class="descriptionBody col s8 offset-s2">
+          <i>Mathematically we denote the ciphertext as C = P + K mod 26.
+          Where C is the Ciphertext, P is the plaintext and K is the key.</i>
         </p>
-          <p class="descBody col s8 offset-s2">
+        <p class="descriptionBody col s8 offset-s2">
           To encrypt our ciphertext, we loop through each letter in the plaintext and check if that letter is part of the alphabet order.
           If it is not part of it, we just add it to the ciphertext text as it is, for example space or any of the special characters.
           Otherwise we add the key to the position of that letter in the alphabet order and if the result is ever above the range of 0 and 25,
           we simply add or subtract 25 to bring the number to our desired range.
-          </p>
-
+        </p>
       </div>
 
       <h5 class="description">Decryption</h5>
 
        <div class="row">
-          <p class="descBody col s8 offset-s2">
+          <p class="descriptionBody col s8 offset-s2">
            To decrypt is also simple, all we have to do is to subtract the key from the position of the letter
            and if the result is below zero we simple add 25 to make sure that it is within the desired range.
          </p>
-         <p class="descBody col s8 offset-s2">
+         <p class="descriptionBody col s8 offset-s2">
            Mathematically we denote the plaintext as P = C + Ke mod 26.
            The C is the ciphertext, P is the plaintext and Ke is the key.
          </p>
-         <p class="descBody col s8 offset-s2">
+         <p class="descriptionBody col s8 offset-s2">
            The problem with this cipher is that is is easy to break because you only have to loop throughout 26 keys
            and the key that will return the plaintext that is readable is the encryption key that was used for the ciphertext.
            This process is called the brute-force attack. We can hack it in a matter of milliseconds. You can see how it works below.
@@ -57,7 +56,7 @@
 
             <div class="row">
               <div class="col l12">
-                <div class="plain_container">
+                <div class=text_container">
                 </div>
               </div>
             </div>

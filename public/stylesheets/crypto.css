@@ -1,28 +1,28 @@
-/**General**/
-
-.description {
-  padding: 15px 0 15px 0;
-}
-
-.descBody {
-  text-align: left;
-}
-
- .ceaser, .transposition, .affine, .substitution, .vigenere {
+/**Ciphers**/
+.ceaser, .transposition, .affine, .substitution, .vigenere {
   padding: 15px 0 15px 0;
   text-align: center;
 }
-
-.plain_container {
+.description {
+  padding: 15px 0 15px 0;
+}
+p.descriptionBody {
+  text-align: left;
+}
+p.descriptionBody::first-letter {
+  font: bold italic 3em / .8 serif;
+  font-style: italic;
+  color: #607d8b;
+  float: left;
+  margin: 0.2em 0.25em .01em 0;
+}
+.text_container {
   color: #00FF00;
   text-align: left;
 }
-
-.plain_container p.para {
+.text_container p.para {
   margin: 0;
 }
-
-/**button**/
 .button {
   padding: 6px 15px 6px 15px;
   background-color: #0C090A;
@@ -30,22 +30,13 @@
   color: #FFFFFF;
   font-size: 16px;
 }
-
-.button:focus {
-  background-color: #000000;
-}
-
-/**Console**/
-.typed-cursor {
-  display: none;
-}
-.fa {
-  float: left;
-}
 .console {
   background-color: #000000;
   border: 10px solid #CCC;
   color: #CCC;
   display: block;
   padding: 5px;
+}
+.fa {
+  float: left;
 }

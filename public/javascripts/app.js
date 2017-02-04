@@ -34,8 +34,8 @@ $(document).ready(function(){
    socket.on('message', function(msg){
      para1 = createElement("p","para","Plain message:" + msg.plaintext)
      para2 = createElement("p","para","Cipher message:" + msg.ciphertext)
-     $(".plain_container").append(para1)
-     $(".plain_container").append(para2)
+     $(".text_container").append(para1)
+     $(".text_container").append(para2)
    });
 
 })
