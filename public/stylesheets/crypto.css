@@ -11,10 +11,12 @@
   text-align: left;
 }
 .descriptionBody::first-letter {
-  font: bold italic 2em / .8  'Cormorant Garamond', serif;
-  font-style: italic;
-  float: left;
-  margin: 0.2em 0.25em .01em 0;
+  font: bold 150% / .8  'Allerta Stencil', sans-serif;
+}
+.algorithm {
+  list-style-type: decimal-leading-zero;
+  list-style-position: inside;
+  text-align: left;
 }
 .text_container {
   color: #00FF00;

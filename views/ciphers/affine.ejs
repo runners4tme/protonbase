@@ -15,14 +15,15 @@
 
       <div class="row">
         <p class="descriptionBody col s8 offset-s2">
-         The affine cipher is a multiplicative cipher. We need to understand some basic mathematics behind it to get started
-         Modular arithmatic is quite simple. We are looking for the remainder of after deviding two numbers.
+         The affine cipher is a multiplicative cipher. We need to understand basic mathematics behind it.
+         Modular arithmatic is quite simple. We are focusing on the remainder of after deviding two numbers.
          For example 7 mod 4 is 3. Factors are numbers that can be multiplied to produce a number.
-         In the affine cipher, the Key A number and the size of the symbol set must be relatively
-         prime to each other. That is, gcd(key, size of symbol set) == 1.
-         For example 16 has factors of 1, 2, 4, 8, 16. The greatest common divisor between two numbers is the number
-         that can divide the two numbers in question with no remainder. We use the Euclid algorithm to find the
-         greatest common divisor of two numbers. Relative prime is when two numbers if the greatest common divisor is one.
+         For example 16 has factors of 1, 2, 4, 8, 16.
+         In the affine cipher, Key A number and the size of the symbol set must be relatively primed to each other.
+         That is their greatest common divisor must be equal to 1.
+         The greatest common divisor between two numbers is the number that can divide the two numbers in question with no remainder.
+         We use the Euclid algorithm to find the greatest common divisor of two numbers.
+         We say that two numbers are relatively primed is when two numbers if the greatest common divisor is one.
         </p>
         <p class="descriptionBody col s8 offset-s2">
           The cipher works in works in this way. We go through the characters of the plaintext.
@@ -30,30 +31,49 @@
           The problem is that A will always map back to A since A  = 0, and 0 multiplied by any number is 0.
           So we simply add a second key then mod 26. You can't just use any number though.
           The first key and the size of the symbol must be relatively primed that is the gcd must be 1.
-          A modular inverse (which we will call i) of two numbers (which we will call a and m) is such
-          that (a * i) % m == 1. For example, let’s find the modular inverse of “5 mod 7”.
-          There is some number i where (5 * i) % 7 will equal “1”.
-          We can't use 1 because it will be weak and also 0 because can't multiply anything with 0.
         </p>
+        <p class="descriptionBody col s8 offset-s2">
+          Here is the implementation of the encryption process:
+        </p>
+        <ol class="algorithm col s8 offset-s2">
+          <li>Calculate key A which is relatively primed to the symbol set.</li>
+          <li>Calculate key B which is the remainder of the key divided by symbol set.</li>
+          <li>Loop through each letter of the plaintext.</li>
+          <li>Check if that letter is part of the alphabet order.</li>
+          <li>If it is part of it, multiply it by key A and add key B.</li>
+          <li>Mod the results by the size of the symbol set.</li>
+          <li>If it is not part of it, add it to the ciphertext.</li>
+          <li>Return the plaintext and ciphertext.</li>
+        </ol>
       </div>
 
       <h5 class="description">Decryption</h5>
 
      <div class="row">
         <p class="descriptionBody col s8 offset-s2">
-          Decrypting the affine cipher is a bit complicated. We need to do some division but not with any number.
-          The modular inverse of two number i is such (a * i) % m == 1, The inverse is the decryption is the key to be
-          multiplied with the position of the character and then modded by 26.
-          There is an algorithm to do it quickly which we won't be discussed now.
-          The probblem with it is that is wraps around the number of the keys. We only have 96 options.
+          Decrypting the affine cipher is complicated. We need to do some division.
+          The modular inverse of two number i is where a * i % m is equal to 1,
+          The inverse is the decryption is the key to be multiplied with the position of the character and then modded by symbol set.
+          The probblem with it is that it wraps around the number of the keys.
           After that, the keys will repeat the encryption.
         </p>
         <p class="descriptionBody col s8 offset-s2">
-          Since we know that this key is just limted to a few thousand keys. We can hack it with brute-force attack!
-          We are going to try each key from 1 using the brute-force attack and try to unlock it using the modular inverse as the key.
-          It only takes a few minutes to go through all the keys without breaking the computer at all.
-          Once we get a plaintext that is english we stop the program and if we have a false positive we just continue with it,
-          We will log all the text on the screen to nake that we don't miss anything at all.
+          Here is the implementation of the decryption process:
+        </p>
+        <ol class="algorithm col s8 offset-s2">
+          <li>Calculate key A which is the modular inverse of the our key and the symbol set.</li>
+          <li>Calculate key B which is the remainder of the key divided by symbol set.</li>
+          <li>Loop through each letter of the ciphertext.</li>
+          <li>Check if that letter is part of the alphabet order.</li>
+          <li>If it is part of it, subtract key B and multiply it by key A.</li>
+          <li>Mod the results by the size of the symbol set.</li>
+          <li>If it is not part of it, add it to the plaintext.</li>
+          <li>Return the plaintext and ciphertext.</li>
+        </ol>
+        <p class="descriptionBody col s8 offset-s2">
+          Since we know that this key is just limited to a few thousand keys. We can hack it with brute-force attack!
+          We need to try each key from 1 using the brute-force attack and try to unlock it using the modular inverse as the key.
+          It only takes a few minutes to go through all the keys without breaking the computer.
         </p>
       </div>
 

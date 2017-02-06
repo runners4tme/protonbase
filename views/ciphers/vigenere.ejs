@@ -17,11 +17,30 @@
         <p class="descriptionBody col s8 offset-s2">
           This is a polyalphabetic substitution cipher that that use characters of a sentence or word as keys.
           The characters are split into a multiple subkeys.
-          The more letters are provided as keys, the stronger it will be the encrypted message. The key can be a combo
-          of words and numbers just more make it more harder. A key of a sentence of 3 words is normally sufficient for a normal distribution.
+          The more letters are provided as keys, the stronger it will be the encrypted message.
+          The key can be a combo of words and numbers just more make it more harder.
+          A key of a sentence with 3 words is normally sufficient for a normal distribution.
         </p>
         <p class="descriptionBody col s8 offset-s2">
+          Here is the implementation of the encryption process:
+        </p>
+        <ol class="algorithm col s8 offset-s2">
+          <li>Loop through each letter of the plaintext.</li>
+          <li>Get the number of the letter in the alphabet order.</li>
+          <li>Add number of the subkey that corresponds to that letter.</li>
+          <li>If the result is ever above the range of 0 and 25</li>
+          <li>Subtract 26 to bring the number to our desired range.</li>
+          <li>Move to the next subkey of the encryption key.</li>
+          <li>If the character is not a letter, add it to the ciphertext.</li>
+          <li>Return the plaintext and ciphertext.</li>
+        </ol>
+        <p class="descriptionBody col s8 offset-s2">
           Mathematically the encryption can be denoted as C = (p, k) where j = 0.
+        </p>
+        <p class="descriptionBody col s8 offset-s2">
+          The number of possible keys multiplies by 26 for every additional letter that is part of the key.
+          It would take a computer years to break quadrillions of possible keys.
+          It was called the indecipherable cipher for a good reason.
         </p>
       </div>
 
@@ -29,19 +48,31 @@
 
       <div class="row">
         <p class="descriptionBody col s8 offset-s2">
-          Do not use a word in the dictionary because it will obviously make your code prone to dictionary attack.
+          Do not use a word in the dictionary because it will obviously make your code prone to a dictionary attack.
           This mean that the hacker will attempt to unlock it with every word as key key in the dictionery.
         </p>
+        <p class="descriptionBody col s8 offset-s2">
+          Here is the implementation of the decryption process:
+        </p>
+        <ol class="algorithm col s8 offset-s2">
+          <li>Loop through each letter of the ciphertext.</li>
+          <li>Get the number of the letter in the alphabet order.</li>
+          <li>Subtract number of the subkey that corresponds to that letter.</li>
+          <li>If the result is ever below the range of 0 and 25</li>
+          <li>Add 26 to bring the number to our desired range.</li>
+          <li>Move to the next subkey of the encryption key.</li>
+          <li>If the character is not a letter, add it to the ciphertext.</li>
+          <li>Return the plaintext and ciphertext.</li>
+        </ol>
         <p class="descriptionBody col s8 offset-s2">
           Mathematically the decryption is p = x, c = (x,k) where j = i mod 6.
         </p>
         <p class="descriptionBody col s8 offset-s2">
-          Cryptanalysis means that we find the words with high frequency.
-          It was called the indecipherable cipher for a good reason.
-          Kasinki examination. This cipher was regarded as unbreakable until charles baggage broke it but never published his papaer.
-          Identify the patterns of three or more characters. Write down the begining position of each pattern.
-          Compute the differences between the starting point and the ending point. Determine all the factors for the differences.
-          Key is one of the most common factors.
+          To hack this cipher, we need to find the words with high frequency.
+          This cipher was regarded as unbreakable until Charles Baggage broke it but never published his papaer.
+          We have to identify the patterns of three or more characters. Write down the begining position of each pattern.
+          Then compute the differences between the starting point and the ending point. And lastly determine all the factors for the differences.
+          The key is one of the frequent common factors.
         </p>
       </div>
 
