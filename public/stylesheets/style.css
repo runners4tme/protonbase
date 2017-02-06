@@ -1,22 +1,12 @@
 /**global**/
 body {
   background-color: #FFFFFF;
-  font-family: 'Electrolize', sans-serif;
-  font-family: 'Allerta Stencil', sans-serif;
-  font-family: 'Bungee Shade', cursive;
-  font-family: 'Special Elite', cursive;
-  font-family: 'Cinzel', serif;
-  font-family: 'Cormorant Garamond', serif;
-  font-family: 'Squada One', cursive;
-  font-family: 'Bungee Inline', cursive;
-  font-family: 'VT323', monospace;
-  font-family: 'Electrolize', sans-serif;
-  font-family: 'Allerta Stencil', sans-serif;
-  font-family: 'Stardos Stencil', cursive;
+  cursor: pointer;
 }
 
 /**navigation bar**/
 .nav-wrapper {
+  font-family: 'Stardos Stencil', cursive;
   background-color: #000000;
 }
 
@@ -55,6 +45,7 @@ body {
 
 /**info**/
 .info {
+  font-family: 'Stardos Stencil', cursive;
   padding: 200px 0 310px;
   text-align: center;
   background-size: cover;
@@ -63,7 +54,17 @@ body {
 
 /**ciphers**/
 .ciphers {
+  font-family: 'Stardos Stencil', cursive;
   text-align: center;
+}
+.ciphers .exampleHeader {
+  padding: 3px;
+  border: solid 2px #000000;
+}
+.ciphers .exampleBody {
+  text-align: left;
+  padding: 2px;
+  border-bottom: dashed 2px #000000;
 }
 .ciphers .cipher {
   background-color: #000000;
@@ -78,6 +79,7 @@ body {
 
 /**footer**/
 .page-footer {
+  font-family: 'Stardos Stencil', cursive;
   color: #FFFFFF;
   text-align: center;
   margin: 0;
