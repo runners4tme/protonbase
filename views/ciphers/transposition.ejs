@@ -20,7 +20,7 @@
           We are going to look at the a simple columner transposition where the letters of the plaintext are
           divided into columns using an encryption key. This cipher is easy to grasp, we devide the plaintext into columns,
           the columns are the length of the key. Then we loop through the columns which are horizontal until we get to the end
-          of all the characters of the plaintext. this cipher is not really appropriate for long messages.
+          of all the characters of the plaintext. This cipher is not appropriate for long messages.
         </p>
         <p class="descriptionBody col s8 offset-s2">
           Here is the implementation of the encryption process:
@@ -38,8 +38,8 @@
 
       <div class="row">
         <p class="descriptionBody col s8 offset-s2">
-          To decrypt the transposition cipher we need to first figure out the number of the rows that the rows formed,
-          this is the key used, we also need to figure out the number of columns which is the length of the message
+          To decrypt the transposition cipher we need to first figure out the number of the columns that the rows formed,
+          this is the length of the key used, we also need to figure out the number of rows which is the length of the message
           over the key. This will allow us to draw a grid of boxes where we can just fill in the letters and we
           also have to calculate the empty spaces because not all the columns will have the same length.
         </p>
@@ -48,7 +48,7 @@
         </p>
         <ol class="algorithm col s8 offset-s2">
           <li>Create columns that are half the length of the key.</li>
-          <li>And the number of rows that are the length of the key.</li>
+          <li>And the number of rows which is the length of the message divide by the key.</li>
           <li>Calculate the number of empty spaces.</li>
           <li>Check if that letter is part of the alphabet order.</li>
           <li>Loop through each letter of the ciphertext.</li>
@@ -65,18 +65,18 @@
       </div>
 
       <div class="row">
-        <div class="col l8 offset-l2">
+        <div class="col s8 offset-s2">
           <div class="console">
 
             <div class="row">
-              <div class="col l12">
+              <div class="col s12">
                 <div class="text_container">
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="input-field col l12">
+              <div class="input-field col s12">
                 <i class="fa fa-chevron-right"></i>
                 <textarea id="textareaTrans" class="materialize-textarea"></textarea>
              </div>

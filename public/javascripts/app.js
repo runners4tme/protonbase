@@ -1,5 +1,23 @@
 $(document).ready(function(){
 
+  /**Code for creating the background image
+  var svg = d3.select(".home")
+             .append("svg")
+             .attr("width", 500)
+             .attr("height", 250);
+
+var t = textures.paths().d("nylon").lighter().thicker().shapeRendering("crispEdges");
+
+         svg.call(t);
+
+         svg.append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .style("fill", t.url());
+**/
+
   var socket = io();
 
   $(".button-collapse").sideNav();
@@ -30,7 +48,6 @@ $(document).ready(function(){
      $(".plain_container").append(para1)
    });
 
-   /**process the data from the server**/
    socket.on('message', function(msg){
      para1 = createElement("p","para","Plain message:" + msg.plaintext)
      para2 = createElement("p","para","Cipher message:" + msg.ciphertext)

@@ -15,21 +15,21 @@
 
       <div class="row">
         <p class="descriptionBody col s8 offset-s2">
-         The affine cipher is a multiplicative cipher. We need to understand basic mathematics behind it.
+         The affine cipher is a multiplicative cipher. We need to understand basic some mathematics behind it.
          Modular arithmatic is quite simple. We are focusing on the remainder of after deviding two numbers.
          For example 7 mod 4 is 3. Factors are numbers that can be multiplied to produce a number.
          For example 16 has factors of 1, 2, 4, 8, 16.
-         In the affine cipher, Key A number and the size of the symbol set must be relatively primed to each other.
+         The affine cipher key has to be split into two keys, Key A and the size of the symbol set must be relatively primed to each other.
          That is their greatest common divisor must be equal to 1.
          The greatest common divisor between two numbers is the number that can divide the two numbers in question with no remainder.
          We use the Euclid algorithm to find the greatest common divisor of two numbers.
-         We say that two numbers are relatively primed is when two numbers if the greatest common divisor is one.
+         We say that two numbers are relatively primed is when two numbers if the greatest common divisor is One.
         </p>
         <p class="descriptionBody col s8 offset-s2">
           The cipher works in works in this way. We go through the characters of the plaintext.
           But instead of adding it number to the key. We multiply it by the number and mod it with 26.
           The problem is that A will always map back to A since A  = 0, and 0 multiplied by any number is 0.
-          So we simply add a second key then mod 26. You can't just use any number though.
+          To fix this, we simply add a second key then mod 26. You can't just use any number though.
           The first key and the size of the symbol must be relatively primed that is the gcd must be 1.
         </p>
         <p class="descriptionBody col s8 offset-s2">
@@ -52,9 +52,9 @@
      <div class="row">
         <p class="descriptionBody col s8 offset-s2">
           Decrypting the affine cipher is complicated. We need to do some division.
-          The modular inverse of two number i is where a * i % m is equal to 1,
-          The inverse is the decryption is the key to be multiplied with the position of the character and then modded by symbol set.
-          The probblem with it is that it wraps around the number of the keys.
+          The modular inverse of two numbers is i where a * i % m is equal to 1,
+          The inverse is the decryption is the key to be multiplied with the position of the character and then add key B modded by symbol set.
+          The problem with it is that it wraps around the number of the keys.
           After that, the keys will repeat the encryption.
         </p>
         <p class="descriptionBody col s8 offset-s2">
@@ -78,18 +78,18 @@
       </div>
 
       <div class="row">
-        <div class="col l8 offset-l2">
+        <div class="col s8 offset-s2">
           <div class="console">
 
             <div class="row">
-              <div class="col l12">
+              <div class="col s12">
                 <div class="text_container">
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="input-field col l12">
+              <div class="input-field col s12">
                 <i class="fa fa-chevron-right"></i>
                 <textarea id="textareaAffine" class="materialize-textarea"></textarea>
              </div>

@@ -2,11 +2,9 @@
   "name": "farmbot",
   "version": "1.0.0",
   "dependencies": {
-    "animate.css": "latest",
     "font-awesome": "latest",
     "materialize": "latest",
     "d3": "^4.4.2",
-    "textures": "^1.0.4",
-    "typed.js": "^1.1.4"
+    "textures": "^1.0.4"
   }
 }

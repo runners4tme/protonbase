@@ -36,9 +36,8 @@
   background-color: #000000;
   border: 10px solid #CCC;
   color: #CCC;
-  display: block;
   padding: 5px;
 }
-.console .fa {
+.console .fa-chevron-right {
   float: left;
 }

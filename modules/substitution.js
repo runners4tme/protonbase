@@ -54,10 +54,10 @@ function decrypt(mykey, myMessage, myMode) {
   return processMessage(mykey, myMessage, myMode);
 }
 
-if (myMode === "encrypt") {
+if (mode === "encrypt") {
   return encrypt(key, message, mode);
 }
-else if (myMode === "decrypt") {
+else if (mode === "decrypt") {
   return decrypt(key, message, mode);
 }
 

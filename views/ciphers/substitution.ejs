@@ -38,9 +38,9 @@
 
       <div class="row">
         <p class="descriptionBody col s8 offset-s2">
-          The simple substitution is abit complex that the other monoalphabetic ciphers.
+          The simple substitution is a bit complex than the other monoalphabetic ciphers.
           To decrypt it, we need to find the inverse of the letter initially used.
-          We simply use the key as the aphabet and find the inverse of it. This is as simple as ABC.
+          We then use the key as the alphabet and find the inverse of it. This is as simple as ABC.
         </p>
         <p class="descriptionBody col s8 offset-s2">
           Here is the implementation of the decryption process:
@@ -53,29 +53,29 @@
           <li>Return the plaintext and ciphertext.</li>
         </ol>
           <p class="descriptionBody col s8 offset-s2">
-          The decryption is quite easy but to hack this cipher is not that simple. We need to employ a clever way to do this.
+          The decryption is quite easy but to hack this cipher is not that simple. We need to be a bit innovative to do this.
           We have to check a word pattern for each word, and each word and the plaintext will always the same word pattern.
-          So we compute all the possible candidates and then create a mapping for all the possible encryption letters.
-          The longer the message the more easier is is to hack it and short messages are very hard to hack.
-          A plaintext word and its cipherword will always have the same word pattern, no matter
-          which simple substitution key was used to do the encryption.
           Most common letters are E.T.R.N.I and least common letters are Z.J.K.Q.X.
+          So we compute all the possible candidates and then create a mapping for all the possible encryption letters.
+          A plaintext word and its ciphertext word will always have the same word pattern, no matter
+          which simple substitution key was used to do the encryption.
+          Lonh messages are more easier to hack and short messages are very hard to hack.
         </p>
       </div>
 
       <div class="row">
-        <div class="col l8 offset-l2">
+        <div class="col s8 offset-s2">
           <div class="console">
 
             <div class="row">
-              <div class="col l12">
+              <div class="col s12">
                 <div class="text_container">
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="input-field col l12">
+              <div class="input-field col s12">
                 <i class="fa fa-chevron-right"></i>
                 <textarea id="textareaSub" class="materialize-textarea"></textarea>
              </div>
