@@ -66,22 +66,15 @@ body {
   padding: 2px;
   border-bottom: dashed 2px #000000;
 }
-.ciphers .cipher {
-  background-color: #000000;
-  color: #FFFFFF;
-}
-.ciphers .cipher h2 {
-  padding: 10px;
-}
-.ciphers .cipher a {
-  color: #FFFFFF;
+.ciphers .list a {
+  color: #000000;
 }
 
 /**footer**/
 .footer {
-  background-color: #000000;
+  background-color: #E5E4E2;
   font-family: 'Stardos Stencil', cursive;
-  color: #FFFFFF;
+  color: #000000;
   text-align: center;
   margin: 0;
   padding: 15px 0 0 0;
