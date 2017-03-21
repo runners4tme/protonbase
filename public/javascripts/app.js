@@ -18,6 +18,8 @@ svg.append("rect")
   .style("fill", t.url());
   **/
 
+  PR.prettyPrint()
+
   var socket = io();
 
   $(".button-collapse").sideNav();
