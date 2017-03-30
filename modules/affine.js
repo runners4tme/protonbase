@@ -1,9 +1,9 @@
 function affineCipher(object) {
 
-  Symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  key = 213;
-  message = object.msg;
-  mode = object.mode;
+  var Symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  var key = 213;
+  var message = object.msg;
+  var mode = object.mode;
 
   function getKeys(myKey) {
 
@@ -15,11 +15,11 @@ function affineCipher(object) {
 
 function encrypt(myKey, myMessage, myMode) {
 
-  ciphertext = "";
-  plaintext = myMessage;
-  keys = getKeys(myKey);
-  keyA = keys[0];
-  keyB = keys[1];
+  var ciphertext = "";
+  var plaintext = myMessage;
+  var keys = getKeys(myKey);
+  var keyA = keys[0];
+  var keyB = keys[1];
 
   for(i = 0; i < plaintext.length; i++) {
     sysIndex = Symbols.indexOf(plaintext[i]);
@@ -37,14 +37,14 @@ function encrypt(myKey, myMessage, myMode) {
 
 function decrypt(myKey, myMessage, myMode) {
 
-  plaintext = "";
-  ciphertext = myMessage;
-  keys = getKeys(myKey);
-  keyA = keys[0];
-  keyB = keys[1];
-  modInverse = 21;
+  var plaintext = "";
+  var ciphertext = myMessage;
+  var keys = getKeys(myKey);
+  var keyA = keys[0];
+  var keyB = keys[1];
+  var modInverse = 21;
 
-  for(z = 0; z <ciphertext.length; z++) {
+  for(z = 0; z < ciphertext.length; z++) {
     sysIndex = Symbols.indexOf(ciphertext[z]);
     if (sysIndex === - 1 ) {
       plaintext = plaintext + ciphertext[z];

@@ -30,12 +30,12 @@ function encrypt(object){
 
 function decrypt(object) {
 
-  ciphertext = object.msg;
-  key = 5;
-  numOfColumns = Math.ceil(ciphertext.length/key);
-  numOfRows = key
-  numOfShadedBoxes = (numOfColumns * numOfRows) - ciphertext.length
-  text = new Array(numOfColumns)
+  var ciphertext = object.msg;
+  var key = 5;
+  var numOfColumns = Math.ceil(ciphertext.length/key);
+  var numOfRows = key
+  var numOfShadedBoxes = (numOfColumns * numOfRows) - ciphertext.length
+  var text = new Array(numOfColumns)
 
   for (j = 0; j < numOfColumns ; j++) {
     if (text[j] === undefined) {
@@ -43,8 +43,8 @@ function decrypt(object) {
     }
   }
 
-  col = 0
-  row = 0
+  var col = 0
+  var row = 0
 
   for(i = 0; i < ciphertext.length; i++) {
     text[col] = text[col] + ciphertext[i]

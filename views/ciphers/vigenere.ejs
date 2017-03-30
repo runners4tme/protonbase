@@ -78,6 +78,77 @@
 
       <div class="row">
         <div class="col s8 offset-s2">
+          <pre class="prettyprint">
+            function vigenereCipher(object) {
+
+              var key = "FRUITS";
+              var mode = object.mode;
+              var message = object.msg;
+
+            function processMessage(key, message, mode) {
+
+              var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+              var text = [];
+              var ciphertext = "";
+              var plaintext = "";
+              var keyIndex = 0;
+              var key = key.toUpperCase();
+
+              for (a = 0; a < message.length; a++) {
+
+                number = letters.indexOf(message[a].toUpperCase());
+
+                if(number !== -1){
+                  if(mode === 'encrypt'){
+                    number += letters.indexOf(key[keyIndex])
+                  } else if(mode === 'decrypt'){
+                    number -= letters.indexOf(key[keyIndex])
+                  }
+
+                  if (number >= letters.length) {
+                      number = number - letters.length
+                     }
+                  else if (number < 0) {
+                      number = number + letters.length
+                    }
+
+                  if (/[A-Z]/.test(message[a])){
+                    text.push(letters[number])
+                  } else if(/[a-z]/.test(message[a])){
+                    text.push(letters[number].toLowerCase())
+                  }
+
+                  keyIndex += 1
+
+                  if (keyIndex === key.length) {
+                    keyIndex = 0
+                  }
+
+                }
+               else {
+                  text.push(message[a])
+                }
+              }
+
+              text = text.join('');
+
+              if(mode === 'encrypt'){
+                plaintext = message;
+                ciphertext = text;
+              } else if(mode === 'decrypt'){
+                plaintext = text;
+                ciphertext = message;
+              }
+
+              return { ciphertext: ciphertext, plaintext: plaintext };
+
+              }
+          </pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s8 offset-s2">
           <div class="console">
 
             <div class="row">

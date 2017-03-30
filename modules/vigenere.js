@@ -1,17 +1,17 @@
 function vigenereCipher(object) {
 
-  key = "FRUITS";
-  mode = object.mode;
-  message = object.msg;
+  var key = "FRUITS";
+  var mode = object.mode;
+  var message = object.msg;
 
 function processMessage(key, message, mode) {
 
-  letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  text = [];
-  ciphertext = "";
-  plaintext = "";
-  keyIndex = 0;
-  key = key.toUpperCase();
+  var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var text = [];
+  var ciphertext = "";
+  var plaintext = "";
+  var keyIndex = 0;
+  var key = key.toUpperCase();
 
   for (a = 0; a < message.length; a++) {
 

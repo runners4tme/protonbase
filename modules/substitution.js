@@ -1,15 +1,15 @@
 function substitutionCipher(payload) {
 
-  message = payload.msg;
-  mode = payload.mode;
-  key = "QWERTYUIOPASDFGHJKLZXCVBNM";
+  var message = payload.msg;
+  var mode = payload.mode;
+  var key = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
 function processMessage(key, message, mode) {
 
-  letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  text = '';
-  characterA = '';
-  characterB = '';
+  var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var text = '';
+  var characterA = '';
+  var characterB = '';
 
   if(mode === "encrypt") {
     characterA = letters;
