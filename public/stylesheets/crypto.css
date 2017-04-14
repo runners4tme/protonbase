@@ -13,6 +13,11 @@
 .descriptionBody::first-letter {
   font: bold 150% / .8  'Allerta Stencil', sans-serif;
 }
+.descriptionHeader {
+  text-align: left;
+  text-transform:capitalize;
+  text-decoration: underline;
+}
 .algorithm {
   list-style-type: decimal-leading-zero;
   list-style-position: inside;
