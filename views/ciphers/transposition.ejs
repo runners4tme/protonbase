@@ -37,9 +37,9 @@
       <div class="row">
         <div class="col s8 offset-s2">
           <pre class="prettyprint">
-            function encrypt(object){
+            function encrypt(obj){
 
-              var plaintext = object.msg;
+              var plaintext = obj.msg;
               var key = 5;
               var text = new Array(key);
 
@@ -100,9 +100,9 @@
             <div class="row">
               <div class="col s8 offset-s2">
                 <pre class="prettyprint">
-                  function decrypt(object) {
+                  function decrypt(obj) {
 
-                    ciphertext = object.msg;
+                    ciphertext = obj.msg;
                     key = 5;
                     numOfColumns = Math.ceil(ciphertext.length/key);
                     numOfRows = key
