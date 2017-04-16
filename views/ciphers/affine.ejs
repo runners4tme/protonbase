@@ -52,9 +52,9 @@
           <pre class="prettyprint">
             function encrypt(myKey, myMessage, myMode) {
 
-            var  ciphertext = "";
+            var  ciphertext = new String();
             var  plaintext = myMessage;
-            var  keys = getKeys(myKey);
+            var  keys = keys(myKey);
             var  keyA = keys[0];
             var  keyB = keys[1];
 
@@ -112,7 +112,7 @@
 
               var plaintext = "";
               var ciphertext = myMessage;
-              var keys = getKeys(myKey);
+              var keys = keys(myKey);
               var keyA = keys[0];
               var keyB = keys[1];
               var modInverse = 21;
@@ -127,7 +127,7 @@
                 }
               }
 
-              return {plaintext:plaintext, ciphertext:ciphertext}
+              return { plaintext:plaintext, ciphertext:ciphertext }
 
             }
           </pre>

@@ -1,11 +1,11 @@
-function affineCipher(object) {
+function affineCipher(obj) {
 
   var Symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   var key = 213;
-  var message = object.msg;
-  var mode = object.mode;
+  var message = obj.msg;
+  var mode = obj.mode;
 
-  function getKeys(myKey) {
+  function computeKeys(myKey) {
 
     keyA = myKey;
     keyB = myKey % Symbols.length;
@@ -15,9 +15,9 @@ function affineCipher(object) {
 
 function encrypt(myKey, myMessage, myMode) {
 
-  var ciphertext = "";
+  var ciphertext = new String();
   var plaintext = myMessage;
-  var keys = getKeys(myKey);
+  var keys = computeKeys(myKey);
   var keyA = keys[0];
   var keyB = keys[1];
 
@@ -37,9 +37,9 @@ function encrypt(myKey, myMessage, myMode) {
 
 function decrypt(myKey, myMessage, myMode) {
 
-  var plaintext = "";
+  var plaintext = new String();
   var ciphertext = myMessage;
-  var keys = getKeys(myKey);
+  var keys = computeKeys(myKey);
   var keyA = keys[0];
   var keyB = keys[1];
   var modInverse = 21;
@@ -54,7 +54,7 @@ function decrypt(myKey, myMessage, myMode) {
     }
   }
 
-  return {plaintext:plaintext, ciphertext:ciphertext}
+  return { plaintext:plaintext, ciphertext:ciphertext }
 
 }
 
@@ -66,5 +66,6 @@ else if (mode === "decrypt") {
 }
 
 }
+
 
 module.exports = affineCipher;

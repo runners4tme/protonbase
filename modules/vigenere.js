@@ -1,15 +1,15 @@
-function vigenereCipher(object) {
+function vigenereCipher(obj) {
 
   var key = "FRUITS";
-  var mode = object.mode;
-  var message = object.msg;
+  var mode = obj.mode;
+  var message = obj.msg;
 
 function processMessage(key, message, mode) {
 
   var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var text = [];
-  var ciphertext = "";
-  var plaintext = "";
+  var ciphertext = new String();
+  var plaintext = new String();
   var keyIndex = 0;
   var key = key.toUpperCase();
 

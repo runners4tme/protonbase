@@ -1,8 +1,8 @@
-function caeser(object){
+function caeser(obj){
 
-var plaintext = object.msg;
+var plaintext = obj.msg;
 var key = 10;
-var mode = object.mode;
+var mode = obj.mode;
 var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var ciphertext = '';
 var plaintext = plaintext.toUpperCase();

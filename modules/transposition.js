@@ -1,10 +1,10 @@
-function transpositionCipher(object) {
+function transpositionCipher(obj) {
 
-  var mode = object.mode;
+  var mode = obj.mode;
 
-function encrypt(object){
+function encrypt(obj){
 
-  var plaintext = object.msg;
+  var plaintext = obj.msg;
   var key = 5;
   var text = new Array(key);
 
@@ -28,9 +28,9 @@ function encrypt(object){
 
 }
 
-function decrypt(object) {
+function decrypt(obj) {
 
-  var ciphertext = object.msg;
+  var ciphertext = obj.msg;
   var key = 5;
   var numOfColumns = Math.ceil(ciphertext.length/key);
   var numOfRows = key
@@ -62,11 +62,11 @@ function decrypt(object) {
 }
 
 if (mode === "encrypt") {
-  return encrypt(object);
-}
+    return encrypt(obj);
+  }
 else if (mode === "decrypt") {
-  return decrypt(object);
-}
+    return decrypt(obj);
+  }
 }
 
 module.exports = transpositionCipher;
