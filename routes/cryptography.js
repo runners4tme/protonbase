@@ -2,11 +2,11 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/affine",function(req, res, next){
-  res.render("ciphers/files");
+  res.render("ciphers/affine");
 })
 
 router.get("/caeser",function(req, res, next){
-  res.render("ciphers/test");
+  res.render("ciphers/caeser");
 })
 
 router.get("/substitution",function(req, res, next){
