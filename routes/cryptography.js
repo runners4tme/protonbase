@@ -6,7 +6,7 @@ router.get("/affine",function(req, res, next){
 })
 
 router.get("/caeser",function(req, res, next){
-  res.render("ciphers/caeser");
+  res.render("ciphers/test");
 })
 
 router.get("/substitution",function(req, res, next){
