@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/affine",function(req, res, next){
-  res.render("ciphers/affine");
+  res.render("ciphers/files");
 })
 
 router.get("/caeser",function(req, res, next){
